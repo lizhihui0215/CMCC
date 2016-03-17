@@ -4,13 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pccw.lizhihui.cmcc.view.activity.MainPageActivity">
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_radio_group">
 
-    </android.support.v4.view.ViewPager>
 
     <RadioGroup
         android:id="@+id/bottom_radio_group"
@@ -61,6 +55,14 @@
             android:background="@drawable/main_home_btn_select"
             android:textSize="14sp" />
     </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_radio_group">
+
+    </android.support.v4.view.ViewPager>
 
 
 </RelativeLayout>

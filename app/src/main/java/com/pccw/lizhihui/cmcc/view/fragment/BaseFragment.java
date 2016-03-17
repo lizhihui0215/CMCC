@@ -1,6 +1,7 @@
 package com.pccw.lizhihui.cmcc.view.fragment;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+
 import android.widget.Toast;
 
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;

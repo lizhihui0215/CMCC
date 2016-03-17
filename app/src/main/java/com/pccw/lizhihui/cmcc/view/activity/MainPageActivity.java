@@ -9,11 +9,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
-
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -50,9 +48,7 @@ public class MainPageActivity extends BaseActivity implements HasComponent<MainP
     }
 
     @Override
-    public MainPageComponent getComponent() {
-        return null;
-    }
+    public MainPageComponent getComponent() { return null; }
 
     private class ContainerPagerAdapter extends FragmentPagerAdapter{
 
@@ -62,9 +58,7 @@ public class MainPageActivity extends BaseActivity implements HasComponent<MainP
 
         @Override
         public Fragment getItem(int position) {
-
-
-            return null;
+            return  MainPageFragmentFactory.create(position);
         }
 
         @Override
