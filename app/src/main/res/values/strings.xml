@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CMCC</string>
+    <string name="login_btn_lable">登录</string>
+    <string name="reset_pass">重置密码</string>
+    <string name="server_setting">服务器地址配置</string>
+    <string name="mobile_copyright">Copyright © 中国移动通信有限公司</string>
+</resources>
