@@ -32,7 +32,6 @@ dependencies {
     compile appDependencies.dagger
     compile appDependencies.rxAndroid
 
-
     //Development
     compile developmentDependencies.leakCanary
 

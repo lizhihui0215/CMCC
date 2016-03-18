@@ -3,7 +3,6 @@ package com.pccw.lizhihui.cmcc.internal.di.components;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityMoudle;
 import com.pccw.lizhihui.cmcc.view.fragment.AssetManagerFragment;
-import com.pccw.lizhihui.cmcc.view.fragment.HomeFragment;
 import com.pccw.lizhihui.cmcc.view.fragment.MineFragment;
 
 import dagger.Component;

@@ -2,46 +2,64 @@ package com.pccw.lizhihui.cmcc.view.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.pccw.lizhihui.cmcc.internal.di.components.HomeComponent;
-import com.pccw.lizhihui.cmcc.presenter.HomePresenter;
+import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.view.HomeDetailsView;
 
-import javax.inject.Inject;
 
-/**
- * Created by lizhihui on 3/17/16.
- *
- */
-public class HomeFragment extends BaseFragment implements HomeDetailsView {
+public class HomeFragment extends BaseFragment implements HomeDetailsView{
 
 
-    @Inject HomePresenter homePresenter;
+    public HomeFragment() {
+        // Required empty public constructor
+    }
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getComponent(HomeComponent.class).inject(this);
+
     }
 
     @Override
-    public void showLoading() {}
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
 
     @Override
-    public void hideLoading() {}
+    public void showLoading() {
+
+    }
 
     @Override
-    public void showRetry() {}
+    public void hideLoading() {
+
+    }
 
     @Override
-    public void hidenRetry() {}
+    public void showRetry() {
+
+    }
 
     @Override
-    public void showError(String message) {}
+    public void hidenRetry() {
+
+    }
+
+    @Override
+    public void showError(String message) {
+
+    }
 
     @Override
     public Context context() {
-        return getActivity().getApplicationContext();
+        return getActivity().getApplication();
     }
 }
