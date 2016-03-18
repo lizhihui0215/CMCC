@@ -2,7 +2,8 @@ package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityMoudle;
-import com.pccw.lizhihui.cmcc.view.fragment.AssetManagerFragment;
+import com.pccw.lizhihui.cmcc.view.fragment.AssetFragment;
+import com.pccw.lizhihui.cmcc.view.fragment.HomeFragment;
 import com.pccw.lizhihui.cmcc.view.fragment.MineFragment;
 
 import dagger.Component;
@@ -16,6 +17,6 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class, modules = {ActivityMoudle.class})
 public interface MainPageComponent {
     void inject(HomeFragment homeFragment);
-    void inject(AssetManagerFragment assetManagerFragment);
+    void inject(AssetFragment assetFragment);
     void inject(MineFragment mineFragment);
 }

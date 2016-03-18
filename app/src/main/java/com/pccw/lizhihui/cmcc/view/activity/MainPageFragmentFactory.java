@@ -2,7 +2,7 @@ package com.pccw.lizhihui.cmcc.view.activity;
 
 import android.support.v4.app.Fragment;
 
-import com.pccw.lizhihui.cmcc.view.fragment.AssetManagerFragment;
+import com.pccw.lizhihui.cmcc.view.fragment.AssetFragment;
 import com.pccw.lizhihui.cmcc.view.fragment.HomeFragment;
 import com.pccw.lizhihui.cmcc.view.fragment.MineFragment;
 
@@ -18,7 +18,7 @@ public class MainPageFragmentFactory {
                 fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new AssetManagerFragment();
+                fragment = new AssetFragment();
                 break;
             case 2:
                 fragment = new MineFragment();
