@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
 
+import java.util.Objects;
+
 /**
  * Created by lizhihui on 3/17/16.
  * Base {@link android.app.Fragment} class for every fragment in this application
@@ -28,6 +30,16 @@ public class BaseFragment extends Fragment {
      */
     @SuppressWarnings("unchecked")
     protected <C> C getComponent(Class<C> componentType){
+        HasComponent hasComponent = (HasComponent) getActivity();
+
+        Objects obj = (Objects) hasComponent.getComponent();
+
+        componentType.cast(obj);
+
+
+
+
+
         return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
     }
 

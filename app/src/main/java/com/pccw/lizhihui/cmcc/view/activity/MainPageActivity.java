@@ -11,6 +11,8 @@ import android.support.v4.view.ViewPager;
 import android.widget.RadioGroup;
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
+import com.pccw.lizhihui.cmcc.internal.di.components.DaggerHomeComponent;
+import com.pccw.lizhihui.cmcc.internal.di.components.HomeComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,6 +20,8 @@ import butterknife.ButterKnife;
 public class MainPageActivity extends BaseActivity implements HasComponent<MainPageComponent>{
 
     private static final int NUM_PAGES = 3;
+
+    private HomeComponent homeComponent;
 
     @Bind(R.id.bottom_radio_group) RadioGroup rg_bottom;
 
@@ -39,6 +43,14 @@ public class MainPageActivity extends BaseActivity implements HasComponent<MainP
         ButterKnife.bind(this);
 
         this.setupContainerView();
+
+        this.initializeInjector();
+    }
+
+    private void initializeInjector() {
+        this.homeComponent = DaggerHomeComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityMoudle(getActivityMoudle()).build();
     }
 
     private void setupContainerView() {
