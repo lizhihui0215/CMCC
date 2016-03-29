@@ -11,7 +11,9 @@ import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.UserRepository;
+
 import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -22,7 +24,11 @@ import dagger.Provides;
 @Module
 public class ApplicationModule {
     private final AndroidApplication application;
-    public ApplicationModule (AndroidApplication application){ this.application = application; }
+
+    public ApplicationModule (AndroidApplication application){
+        this.application = application;
+    }
+
     @Provides @Singleton Context provideApplicationContext(){ return this.application; }
 
     @Provides @Singleton ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor){ return jobExecutor; }

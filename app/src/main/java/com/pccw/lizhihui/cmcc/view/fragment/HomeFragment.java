@@ -5,26 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.pccw.lizhihui.cmcc.R;
-import com.pccw.lizhihui.cmcc.internal.di.components.HomeComponent;
 import com.pccw.lizhihui.cmcc.view.HomeDetailsView;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 
 
 public class HomeFragment extends BaseFragment implements HomeDetailsView{
 
-
+    @Inject
     public HomeFragment() {
         // Required empty public constructor
+        super();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getComponent(HomeComponent.class).inject(this);
     }
 
     @Override

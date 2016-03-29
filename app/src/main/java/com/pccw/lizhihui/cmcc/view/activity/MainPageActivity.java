@@ -1,33 +1,23 @@
 package com.pccw.lizhihui.cmcc.view.activity;
 
-import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.widget.RadioGroup;
+import android.util.Log;
+
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
-import com.pccw.lizhihui.cmcc.internal.di.components.DaggerHomeComponent;
-import com.pccw.lizhihui.cmcc.internal.di.components.HomeComponent;
+import com.pccw.lizhihui.cmcc.internal.di.components.DaggerMainPageComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
-import butterknife.Bind;
+import com.pccw.lizhihui.cmcc.internal.di.modules.MainPageModule;
+import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
+
 import butterknife.ButterKnife;
 
-public class MainPageActivity extends BaseActivity implements HasComponent<MainPageComponent>{
+public class MainPageActivity extends BaseActivity implements HasComponent<MainPageComponent>,
+MainPageFragment.MainPageContainerListener{
 
-    private static final int NUM_PAGES = 3;
-
-    private HomeComponent homeComponent;
-
-    @Bind(R.id.bottom_radio_group) RadioGroup rg_bottom;
-
-    @Bind(R.id.container_view_pager) ViewPager vp_container;
-
-    private PagerAdapter pagerAdapter;
+    private MainPageComponent mainPageComponent;
 
     public static Intent getCallingIntent(Context context) {
         Intent callingIntent = new Intent(context, MainPageActivity.class);
@@ -42,40 +32,36 @@ public class MainPageActivity extends BaseActivity implements HasComponent<MainP
 
         ButterKnife.bind(this);
 
-        this.setupContainerView();
+        this.initializeActivity(savedInstanceState);
 
         this.initializeInjector();
     }
 
-    private void initializeInjector() {
-        this.homeComponent = DaggerHomeComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityMoudle(getActivityMoudle()).build();
+    private void initializeActivity(Bundle savedInstanceState) {
+        if (savedInstanceState == null){
+            addFragment(R.id.container_fragment,new MainPageFragment());
+        }
     }
 
-    private void setupContainerView() {
-        this.pagerAdapter = new ContainerPagerAdapter(getSupportFragmentManager());
+    private void initializeInjector() {
+        this.mainPageComponent = DaggerMainPageComponent.builder()
+                .applicationComponent(getApplicationComponent())
+                .activityModule(getActivityMoudle())
+                .mainPageModule(getMainPageMoudle())
+                .build();
+    }
 
-        this.vp_container.setAdapter(this.pagerAdapter);
+    public MainPageModule getMainPageMoudle(){
+        return new MainPageModule();
     }
 
     @Override
-    public MainPageComponent getComponent() { return null; }
+    public MainPageComponent getComponent() {
+        return this.mainPageComponent;
+    }
 
-    private class ContainerPagerAdapter extends FragmentPagerAdapter{
-
-        public ContainerPagerAdapter(FragmentManager fragmentManager) {
-            super(fragmentManager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return  MainPageFragmentFactory.create(position);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
+    @Override
+    public void onPageSelected(int position) {
+        Log.v("position" + position,"MainActivity");
     }
 }

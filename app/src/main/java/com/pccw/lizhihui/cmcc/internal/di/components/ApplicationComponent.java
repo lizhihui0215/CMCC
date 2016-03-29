@@ -1,13 +1,16 @@
 package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import android.content.Context;
-import javax.inject.Singleton;
-import dagger.Component;
+
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.UserRepository;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ApplicationModule;
 import com.pccw.lizhihui.cmcc.view.activity.BaseActivity;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
 
 /**
  * Created by lizhihui on 3/16/16.

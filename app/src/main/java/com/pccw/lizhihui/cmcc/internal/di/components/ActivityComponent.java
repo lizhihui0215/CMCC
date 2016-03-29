@@ -1,10 +1,8 @@
 package com.pccw.lizhihui.cmcc.internal.di.components;
 
-import android.app.Activity;
-
+import android.support.v7.app.AppCompatActivity;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityMoudle;
-
+import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityModule;
 import dagger.Component;
 
 /**
@@ -17,8 +15,8 @@ import dagger.Component;
  * {@link com.pccw.lizhihui.cmcc.internal.di.PerActivity}
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class, modules = ActivityMoudle.class)
+@Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
     // Exposed to sub-graphs.
-    Activity activity();
+    AppCompatActivity activity();
 }

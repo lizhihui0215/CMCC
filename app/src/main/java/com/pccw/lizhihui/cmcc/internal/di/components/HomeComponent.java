@@ -1,7 +1,7 @@
 package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityMoudle;
+import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityModule;
 import com.pccw.lizhihui.cmcc.view.fragment.HomeFragment;
 
 import dagger.Component;
@@ -11,7 +11,7 @@ import dagger.Component;
  *
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class, modules = {ActivityMoudle.class})
+@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class})
 public interface HomeComponent extends ActivityComponent{
     void inject(HomeFragment homeFragment);
 }
