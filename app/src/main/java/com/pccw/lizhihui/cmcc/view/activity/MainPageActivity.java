@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.pccw.lizhihui.cmcc.R;
+import com.pccw.lizhihui.cmcc.domain.Province;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.DaggerMainPageComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
+import com.pccw.lizhihui.cmcc.internal.di.modules.HomeModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainPageModule;
 import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
 
@@ -48,11 +50,16 @@ MainPageFragment.MainPageContainerListener{
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityMoudle())
                 .mainPageModule(getMainPageMoudle())
+                .homeModule(getHomeModule())
                 .build();
     }
 
     public MainPageModule getMainPageMoudle(){
         return new MainPageModule();
+    }
+
+    public HomeModule getHomeModule(){
+        return new HomeModule(Province.UNIVERSAL);
     }
 
     @Override

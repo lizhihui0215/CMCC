@@ -3,7 +3,7 @@ package com.pccw.lizhihui.cmcc.presenter;
 import android.support.annotation.NonNull;
 
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-import com.pccw.lizhihui.cmcc.view.MainPageContainerView;
+import com.pccw.lizhihui.cmcc.view.MainPageView;
 
 import javax.inject.Inject;
 
@@ -12,17 +12,17 @@ import javax.inject.Inject;
  *
  */
 @PerActivity
-public class MainPageContainerPresenter implements Presenter {
+public class MainPagePresenter implements Presenter {
 
-    private MainPageContainerView mainPageContainerView;
+    private MainPageView mainPageView;
 
     @Inject
-    public MainPageContainerPresenter(){
+    public MainPagePresenter(){
 
     }
 
-    public void setView(@NonNull MainPageContainerView mainPageContainerView){
-        this.mainPageContainerView = mainPageContainerView;
+    public void setView(@NonNull MainPageView mainPageView){
+        this.mainPageView = mainPageView;
     }
 
     @Override

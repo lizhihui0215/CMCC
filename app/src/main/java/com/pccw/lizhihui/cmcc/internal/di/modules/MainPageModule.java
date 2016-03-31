@@ -9,5 +9,6 @@ import dagger.Module;
 @Module
 public class MainPageModule {
     public MainPageModule(){
+
     }
 }

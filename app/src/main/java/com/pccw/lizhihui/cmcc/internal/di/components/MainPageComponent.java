@@ -2,8 +2,8 @@ package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityModule;
+import com.pccw.lizhihui.cmcc.internal.di.modules.HomeModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainPageModule;
-import com.pccw.lizhihui.cmcc.view.adapter.MainPagerAdapter;
 import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
 
 import dagger.Component;
@@ -13,8 +13,7 @@ import dagger.Component;
  *
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class,MainPageModule.class})
+@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class,MainPageModule.class, HomeModule.class})
 public interface MainPageComponent extends ActivityComponent{
     void inject(MainPageFragment mainPageFragment);
-    void inject(MainPagerAdapter mainPagerAdapter);
 }

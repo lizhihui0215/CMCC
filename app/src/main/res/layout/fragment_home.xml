@@ -3,11 +3,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.pccw.lizhihui.cmcc.view.fragment.HomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_mytask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_color" >
+
+            <ImageView
+                android:id="@+id/iv_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/task" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_task"
+                android:paddingLeft="5dp"
+                android:text="我的任务"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/text_gray"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/home_task_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/textView"
+                android:background="@drawable/icon_nobox_b"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/tv_alltask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/into2" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="3"
+            android:stretchMode="columnWidth">
+
+        </GridView>
+
+    </LinearLayout>
+
 
 </FrameLayout>

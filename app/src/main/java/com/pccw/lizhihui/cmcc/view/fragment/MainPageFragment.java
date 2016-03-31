@@ -10,8 +10,8 @@ import android.widget.RadioGroup;
 
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
-import com.pccw.lizhihui.cmcc.presenter.MainPageContainerPresenter;
-import com.pccw.lizhihui.cmcc.view.MainPageContainerView;
+import com.pccw.lizhihui.cmcc.presenter.MainPagePresenter;
+import com.pccw.lizhihui.cmcc.view.MainPageView;
 import com.pccw.lizhihui.cmcc.view.adapter.MainPagerAdapter;
 
 import javax.inject.Inject;
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * Created by lizhihui on 3/29/16.
  *
  */
-public class MainPageFragment extends BaseFragment implements MainPageContainerView{
+public class MainPageFragment extends BaseFragment implements MainPageView {
 
     public interface MainPageContainerListener {
         public void onPageSelected(int position);
@@ -33,10 +33,9 @@ public class MainPageFragment extends BaseFragment implements MainPageContainerV
 
     @Bind(R.id.vp_container) ViewPager viewPager;
 
-    @Inject MainPageContainerPresenter mainPageContainerPresenter;
+    @Inject MainPagePresenter mainPagePresenter;
 
-    @Inject
-    MainPagerAdapter mainPagerAdapter;
+    @Inject MainPagerAdapter mainPagerAdapter;
 
     private MainPageContainerListener mainPageContainerListener;
 
