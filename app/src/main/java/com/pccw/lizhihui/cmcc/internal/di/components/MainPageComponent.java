@@ -5,7 +5,6 @@ import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.HomeModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainPageModule;
 import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
-
 import dagger.Component;
 
 /**

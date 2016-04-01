@@ -7,17 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
-
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.model.HomeModel;
 import com.pccw.lizhihui.cmcc.presenter.HomePresenter;
 import com.pccw.lizhihui.cmcc.view.HomeView;
 import com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter;
-
 import java.util.Collection;
-
 import javax.inject.Inject;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 

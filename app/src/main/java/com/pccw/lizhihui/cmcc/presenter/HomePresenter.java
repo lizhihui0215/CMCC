@@ -1,16 +1,13 @@
 package com.pccw.lizhihui.cmcc.presenter;
 
 import android.support.annotation.NonNull;
-
 import com.pccw.lizhihui.cmcc.domain.HomeItem;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.HomeCase;
 import com.pccw.lizhihui.cmcc.mapper.HomeModelDataMapper;
 import com.pccw.lizhihui.cmcc.model.HomeModel;
 import com.pccw.lizhihui.cmcc.view.HomeView;
-
 import java.util.Collection;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 

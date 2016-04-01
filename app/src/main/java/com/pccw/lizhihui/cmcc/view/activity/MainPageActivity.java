@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.domain.Province;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;

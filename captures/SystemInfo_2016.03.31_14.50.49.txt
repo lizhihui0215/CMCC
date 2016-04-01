@@ -1,0 +1,206 @@
+TASK com.pccw.lizhihui.cmcc id=267
+  ACTIVITY com.pccw.lizhihui.cmcc/.view.activity.MainPageActivity af63db pid=25989
+    Local FragmentActivity d494f52 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    Active Fragments in 9cdf223:
+      #0: MainPageFragment{688f320 #0 id=0x7f0b0062}
+        mFragmentId=#7f0b0062 mContainerId=#7f0b0062 mTag=null
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=true mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{9cdf223 in HostCallbacks{d2374d9}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+        mContainer=android.widget.FrameLayout{e890e9e V.E...... ........ 0,0-1080,1536 #7f0b0062 app:id/container_fragment}
+        mView=android.widget.RelativeLayout{f038d7f V.E...... ........ 0,0-1080,1536}
+        mInnerView=android.widget.RelativeLayout{f038d7f V.E...... ........ 0,0-1080,1536}
+        Child FragmentManager{8da214c in MainPageFragment{688f320}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+            mContainer=android.support.v4.app.Fragment$1@7cd8595
+            mParent=MainPageFragment{688f320 #0 id=0x7f0b0062}
+            mCurState=5 mStateSaved=false mDestroyed=false
+      #1: AssetFragment{f9308eb #1 id=0x7f0b006d android:switcher:2131427437:1}
+        mFragmentId=#7f0b006d mContainerId=#7f0b006d mTag=android:switcher:2131427437:1
+        mState=5 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=false mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=false
+        mFragmentManager=FragmentManager{9cdf223 in HostCallbacks{d2374d9}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+        mContainer=android.support.v4.view.ViewPager{77376aa VFED..... ........ 0,0-1080,1359 #7f0b006d app:id/vp_container}
+        mView=android.widget.RelativeLayout{bcd829b V.E...... ........ 1080,0-2160,1359}
+        mInnerView=android.widget.RelativeLayout{bcd829b V.E...... ........ 1080,0-2160,1359}
+        Child FragmentManager{32e0638 in AssetFragment{f9308eb}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+            mContainer=android.support.v4.app.Fragment$1@7cde611
+            mParent=AssetFragment{f9308eb #1 id=0x7f0b006d android:switcher:2131427437:1}
+            mCurState=5 mStateSaved=false mDestroyed=false
+      #2: HomeFragment{ea5376 #2 id=0x7f0b006d android:switcher:2131427437:0}
+        mFragmentId=#7f0b006d mContainerId=#7f0b006d mTag=android:switcher:2131427437:0
+        mState=5 mIndex=2 mWho=android:fragment:2 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{9cdf223 in HostCallbacks{d2374d9}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+        mContainer=android.support.v4.view.ViewPager{77376aa VFED..... ........ 0,0-1080,1359 #7f0b006d app:id/vp_container}
+        mView=android.widget.FrameLayout{c77ad77 V.E...... ........ 0,0-1080,1359}
+        mInnerView=android.widget.FrameLayout{c77ad77 V.E...... ........ 0,0-1080,1359}
+        Child FragmentManager{6d94de4 in HomeFragment{ea5376}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+            mContainer=android.support.v4.app.Fragment$1@299d24d
+            mParent=HomeFragment{ea5376 #2 id=0x7f0b006d android:switcher:2131427437:0}
+            mCurState=5 mStateSaved=false mDestroyed=false
+      #3: MineFragment{abb39a2 #3 id=0x7f0b006d android:switcher:2131427437:2}
+        mFragmentId=#7f0b006d mContainerId=#7f0b006d mTag=android:switcher:2131427437:2
+        mState=1 mIndex=3 mWho=android:fragment:3 mBackStackNesting=0
+        mAdded=false mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=true mMenuVisible=false mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=false
+        mFragmentManager=FragmentManager{9cdf223 in HostCallbacks{d2374d9}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+        Child FragmentManager{e203102 in MineFragment{abb39a2}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+            mContainer=android.support.v4.app.Fragment$1@c2faa13
+            mParent=MineFragment{abb39a2 #3 id=0x7f0b006d android:switcher:2131427437:2}
+            mCurState=1 mStateSaved=true mDestroyed=false
+    Added Fragments:
+      #0: MainPageFragment{688f320 #0 id=0x7f0b0062}
+      #1: AssetFragment{f9308eb #1 id=0x7f0b006d android:switcher:2131427437:1}
+      #2: HomeFragment{ea5376 #2 id=0x7f0b006d android:switcher:2131427437:0}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@d2374d9
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.PhoneWindow$DecorView{3cf6450 V.E..... ... 0,0-1080,1920}
+        android.widget.LinearLayout{5be4649 V.E..... ... 0,0-1080,1776}
+          android.view.ViewStub{e45b4e G.E..... ... 0,0-0,0 #10203a9 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{160d46f V.E..... ... 0,72-1080,1776}
+            android.support.v7.widget.ActionBarOverlayLayout{3ce757c V.E..... ... 0,0-1080,1704 #7f0b004a app:id/decor_content_parent}
+              android.support.v7.widget.ContentFrameLayout{9bfe05 V.E..... ... 0,168-1080,1704 #1020002 android:id/content}
+                android.widget.RelativeLayout{6aede5a V.E..... ... 0,0-1080,1536}
+                  android.widget.FrameLayout{e890e9e V.E..... ... 0,0-1080,1536 #7f0b0062 app:id/container_fragment}
+                    android.widget.RelativeLayout{f038d7f V.E..... ... 0,0-1080,1536}
+                      android.widget.RadioGroup{3d0488b V.E..... ... 0,1359-1080,1536 #7f0b0063 app:id/bottom_radio_group}
+                        android.support.v7.widget.AppCompatRadioButton{c4b6d68 VFED..C. ... 0,0-360,177 #7f0b006a app:id/btn_0}
+                        android.support.v7.widget.AppCompatRadioButton{de37581 VFED..C. ... 360,0-720,177 #7f0b006b app:id/btn_2}
+                        android.support.v7.widget.AppCompatRadioButton{a6c8626 VFED..C. ... 720,0-1080,177 #7f0b006c app:id/btn_3}
+                      android.support.v4.view.ViewPager{77376aa VFED.... ... 0,0-1080,1359 #7f0b006d app:id/vp_container}
+                        android.widget.RelativeLayout{bcd829b V.E..... ... 1080,0-2160,1359}
+                          android.support.v7.widget.AppCompatTextView{878e267 V.ED.... ... 0,0-1080,1359}
+                        android.widget.FrameLayout{c77ad77 V.E..... ... 0,0-1080,1359}
+                          android.widget.LinearLayout{31df814 V.E..... ... 0,0-1080,1359}
+                            android.widget.RelativeLayout{8d0e8bd V.E..... ... 0,0-1080,105 #7f0b0064 app:id/rl_mytask}
+                              android.support.v7.widget.AppCompatImageView{70adeb2 V.ED.... ... 45,19-111,85 #7f0b0065 app:id/iv_task}
+                              android.support.v7.widget.AppCompatTextView{f273e03 V.ED.... ... 111,20-318,85 #7f0b0066 app:id/textView}
+                              android.support.v7.widget.AppCompatTextView{1ec8180 V.ED.... ... 333,0-377,61 #7f0b0067 app:id/home_task_number}
+                              android.support.v7.widget.AppCompatImageView{a2853b9 V.ED.... ... 1003,24-1035,81 #7f0b0068 app:id/tv_alltask}
+                            android.widget.GridView{6c433fe VFED.VC. ... 0,105-1080,1359 #7f0b0069 app:id/gv_container}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{dd5b75f V.E..... ... 0,0-360,363}
+                                android.widget.RelativeLayout{45835ac V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{8f17275 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{b2b920a V.ED.... ... 54,210-306,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{5c86a7b V.E..... ... 360,0-720,363}
+                                android.widget.RelativeLayout{ce90098 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{af3c0f1 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{9f8c4d6 V.ED.... ... 138,210-222,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{e693357 V.E..... ... 720,0-1080,363}
+                                android.widget.RelativeLayout{cb98e44 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{f27b2d V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{a945862 V.ED.... ... 75,210-285,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{1e3adf3 V.E..... ... 0,363-360,726}
+                                android.widget.RelativeLayout{9e34ab0 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{aa89d29 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{6398ae V.ED.... ... 75,210-285,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{781364f V.E..... ... 360,363-720,726}
+                                android.widget.RelativeLayout{aa61dc V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{e84e2e5 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{dd491ba V.ED.... ... 138,210-222,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{7c4e86b V.E..... ... 720,363-1080,726}
+                                android.widget.RelativeLayout{b69bfc8 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{125c861 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{c2a0f86 V.ED.... ... 54,210-306,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{647a047 V.E..... ... 0,726-360,1089}
+                                android.widget.RelativeLayout{d3f1074 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{895899d V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{4079e12 V.ED.... ... 138,210-222,267 #7f0b006f app:id/tv_title}
+                              com.pccw.lizhihui.cmcc.view.adapter.HomeGridViewAdapter$HomeGridViewItem{d53f9e3 V.E..... ... 360,726-720,1089}
+                                android.widget.RelativeLayout{b76bfe0 V.E..... ... 0,0-360,363}
+                                  android.widget.ImageView{7462299 V.ED.... ... 111,60-249,210 #7f0b006e app:id/iv_image}
+                                  android.widget.TextView{2bd895e V.ED.... ... 96,210-264,267 #7f0b006f app:id/tv_title}
+              android.support.v7.widget.ActionBarContainer{742513f V.ED.... ... 0,0-1080,168 #7f0b004b app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{1b7fa0c V.E..... ... 0,0-1080,168 #7f0b004c app:id/action_bar}
+                  android.widget.TextView{acd4f55 V.ED.... ... 48,43-218,124}
+                  android.support.v7.widget.ActionMenuView{854dd6a V.E..... ... 1080,0-1080,168}
+                android.support.v7.widget.ActionBarContextView{194c25b G.E..... ... 0,0-0,0 #7f0b004d app:id/action_context_bar}
+        android.view.View{cf0aaf8 V.ED.... ... 0,1776-1080,1920 #1020030 android:id/navigationBarBackground}
+        android.view.View{a608bd1 V.ED.... ... 0,0-1080,72 #102002f android:id/statusBarBackground}
+
+  ACTIVITY com.pccw.lizhihui.cmcc/.view.activity.LoginActivity 486a5e1 pid=25989
+    Local FragmentActivity d99fa93 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@a5b6636
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@a5b6636
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.PhoneWindow$DecorView{5d32937 I.E..... ... 0,0-1080,1920}
+        android.widget.LinearLayout{9017ea4 V.E..... ... 0,0-1080,1776}
+          android.view.ViewStub{111140d G.E..... ... 0,0-0,0 #10203a9 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{76fafc2 V.E..... ... 0,72-1080,1776}
+            android.support.v7.widget.ActionBarOverlayLayout{42721d3 V.E..... ... 0,0-1080,1704 #7f0b004a app:id/decor_content_parent}
+              android.support.v7.widget.ContentFrameLayout{d29e110 V.E..... ... 0,168-1080,1704 #1020002 android:id/content}
+                android.widget.RelativeLayout{fc7e409 V.E..... ... 0,0-1080,1536}
+                  android.widget.LinearLayout{78d060e V.E..... ... 120,626-960,910 #7f0b005b app:id/edit_area_layout}
+                    android.widget.LinearLayout{bb8082f V.E..... ... 0,0-840,142}
+                      android.support.v7.widget.AppCompatImageView{333fe3c V.ED.... ... 63,31-143,111}
+                      android.support.v7.widget.AppCompatEditText{301b7c5 VFED..CL F.. 233,38-840,103}
+                    android.widget.LinearLayout{517751a V.E..... ... 0,142-840,284}
+                      android.support.v7.widget.AppCompatImageView{cc6f84b V.ED.... ... 63,31-123,111}
+                      android.support.v7.widget.AppCompatEditText{560c228 VFED..CL ... 213,38-840,103}
+                  android.support.v7.widget.AppCompatTextView{84b0b41 V.ED.... ... 324,433-756,506 #7f0b005c app:id/app_name_text_view}
+                  android.support.v7.widget.AppCompatImageView{aa7c8e6 V.ED.... ... 376,187-703,403}
+                  android.widget.LinearLayout{8ace27 V.E..... ... 0,910-1080,1185 #7f0b005d app:id/action_area_layout}
+                    android.support.v7.widget.AppCompatButton{f13d8d4 VFED..C. ... 120,60-960,180 #7f0b005e app:id/login_button}
+                    android.widget.RelativeLayout{f7c1a7d V.E..... ... 120,210-960,275}
+                      android.support.v7.widget.AppCompatTextView{1978d72 V.ED.... ... 0,0-192,65 #7f0b005f app:id/reset_password_text_view}
+                      android.support.v7.widget.AppCompatTextView{2cc25c3 V.ED.... ... 504,0-840,65 #7f0b0060 app:id/server_settting_text_view}
+                  android.support.v7.widget.AppCompatTextView{c3fae40 V.ED.... ... 213,1389-866,1446 #7f0b0061 app:id/copyright_text_view}
+              android.support.v7.widget.ActionBarContainer{3b4e179 V.ED.... ... 0,0-1080,168 #7f0b004b app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{d4d0ebe V.E..... ... 0,0-1080,168 #7f0b004c app:id/action_bar}
+                  android.widget.TextView{9415b1f V.ED.... ... 48,43-218,124}
+                  android.support.v7.widget.ActionMenuView{3916e6c V.E..... ... 1080,0-1080,168}
+                android.support.v7.widget.ActionBarContextView{8191c35 G.E..... ... 0,0-0,0 #7f0b004d app:id/action_context_bar}
+        android.view.View{f4758ca V.ED.... ... 0,1776-1080,1920 #1020030 android:id/navigationBarBackground}
+        android.view.View{4aa8a3b V.ED.... ... 0,0-1080,72 #102002f android:id/statusBarBackground}
+
+  ACTIVITY com.pccw.lizhihui.cmcc/.view.activity.MainActivity ff93456 pid=25989
+    Local FragmentActivity 773742d State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@75d0558
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@75d0558
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.PhoneWindow$DecorView{44c46b1 I.E..... ... 0,0-1080,1920}
+        android.widget.LinearLayout{fea3796 V.E..... ... 0,0-1080,1776}
+          android.view.ViewStub{7ad8f17 G.E..... ... 0,0-0,0 #10203a9 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{9491f04 V.E..... ... 0,72-1080,1776}
+            android.support.v7.widget.ActionBarOverlayLayout{cad9ced V.E..... ... 0,0-1080,1704 #7f0b004a app:id/decor_content_parent}
+              android.support.v7.widget.ContentFrameLayout{80a3722 V.E..... ... 0,168-1080,1704 #1020002 android:id/content}
+                android.widget.RelativeLayout{f7205b3 V.E..... ... 0,0-1080,1536}
+              android.support.v7.widget.ActionBarContainer{cbb2770 V.ED.... ... 0,0-1080,168 #7f0b004b app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{2541ae9 V.E..... ... 0,0-1080,168 #7f0b004c app:id/action_bar}
+                  android.widget.TextView{738a36e V.ED.... ... 48,43-218,124}
+                  android.support.v7.widget.ActionMenuView{9fd4a0f V.E..... ... 1080,0-1080,168}
+                android.support.v7.widget.ActionBarContextView{4034a9c G.E..... ... 0,0-0,0 #7f0b004d app:id/action_context_bar}
+        android.view.View{6ca7ca5 V.ED.... ... 0,1776-1080,1920 #1020030 android:id/navigationBarBackground}
+        android.view.View{2cf887a V.ED.... ... 0,0-1080,72 #102002f android:id/statusBarBackground}

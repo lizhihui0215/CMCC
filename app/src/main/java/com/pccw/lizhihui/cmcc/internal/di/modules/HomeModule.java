@@ -6,9 +6,7 @@ import com.pccw.lizhihui.cmcc.domain.interactor.GetTaskNumber;
 import com.pccw.lizhihui.cmcc.domain.interactor.HomeCase;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-
 import javax.inject.Named;
-
 import dagger.Module;
 import dagger.Provides;
 
