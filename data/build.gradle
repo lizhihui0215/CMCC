@@ -58,5 +58,9 @@ dependencies {
     apt dataDependencies.daggerCompiler
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.dagger
+    compile dataDependencies.retrofit
+    compile dataDependencies.retrofitConverterGson
+    compile dataDependencies.retrofitCallAdapter
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
 
 }

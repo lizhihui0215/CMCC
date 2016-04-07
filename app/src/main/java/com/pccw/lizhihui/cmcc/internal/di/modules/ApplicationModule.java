@@ -14,7 +14,7 @@ import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
-import com.pccw.lizhihui.cmcc.domain.repository.UserRepository;
+import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 
 import javax.inject.Singleton;
 
@@ -45,12 +45,14 @@ public class ApplicationModule {
         return userCache;
     }
 
-    @Provides @Singleton UserRepository provideUserRepository(UserDataRepository userDataRepository) {
-        return userDataRepository;
-    }
+
 
     @Provides @Singleton HomeRepository provideHomeRepository(HomeDataRepository homeDataRepository){
         return homeDataRepository;
+    }
+
+    @Provides @Singleton LoginRepository provideLoginRepository(UserDataRepository userDataRepository){
+        return userDataRepository;
     }
 
     @Provides @Singleton HomeCache provideHomeCache(HomeCacheImpl homeCacheImpl){

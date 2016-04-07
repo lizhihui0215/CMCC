@@ -5,6 +5,4 @@ import java.util.concurrent.Executor;
 /**
  * Created by lizhihui on 3/16/16.
  */
-public interface ThreadExecutor extends Executor{
-
-}
+public interface ThreadExecutor extends Executor{}

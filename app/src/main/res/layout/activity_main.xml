@@ -6,7 +6,4 @@
     android:background="@drawable/login_bg"
     tools:context="com.pccw.lizhihui.cmcc.view.activity.MainActivity">
 
-
-
-
 </RelativeLayout>
