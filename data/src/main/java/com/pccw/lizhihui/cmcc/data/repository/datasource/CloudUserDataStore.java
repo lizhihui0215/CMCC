@@ -2,6 +2,7 @@ package com.pccw.lizhihui.cmcc.data.repository.datasource;
 
 import android.util.Log;
 
+import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.entity.UserEntity;
 import com.pccw.lizhihui.cmcc.data.net.RestAPI;
 
@@ -15,7 +16,7 @@ public class CloudUserDataStore implements UserDataStore {
 
     private final RestAPI restAPI;
 
-    private final Action1<UserEntity> saveToCacheAction = userEntity -> {
+    private final Action1<LoginParameters> saveToCacheAction = userEntity -> {
         Log.v("save user" + userEntity,"login");
     };
 

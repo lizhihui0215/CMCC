@@ -1,5 +1,6 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
+import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.entity.UserEntity;
 
 import rx.Observable;

@@ -2,6 +2,7 @@ package com.pccw.lizhihui.cmcc.data.net;
 
 import android.content.Context;
 
+import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.entity.UserEntity;
 
 import okhttp3.OkHttpClient;
@@ -40,7 +41,7 @@ public class RestAPIImpl implements RestAPI {
                 .build();
 
         CMCCService service = retrofit.create(CMCCService.class);
-        UserEntity userEntity = new UserEntity(username, password);
-        return service.getUser(userEntity);
+        LoginParameters loginParameters = new LoginParameters(username, password);
+        return service.getUser(loginParameters);
     }
 }
