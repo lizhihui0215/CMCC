@@ -11,6 +11,6 @@ public interface UserCache {
 
     Observable<User> get(String account, String password);
 
-    void put(User user);
+    void put(User user) throws Exception;
 
 }

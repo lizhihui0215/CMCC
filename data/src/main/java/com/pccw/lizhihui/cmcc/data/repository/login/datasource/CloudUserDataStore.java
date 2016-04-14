@@ -1,10 +1,8 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
-import android.util.Log;
-
-import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
+import com.pccw.lizhihui.cmcc.domain.User;
 
 import rx.Observable;
 import rx.functions.Action1;
@@ -14,18 +12,31 @@ import rx.functions.Action1;
  */
 public class CloudUserDataStore implements UserDataStore {
 
-    private final NetworkServices NetworkServices;
+    private final NetworkServices networkServices;
 
-    private final Action1<LoginParameters> saveToCacheAction = userEntity -> {
-        Log.v("save user" + userEntity,"login");
+    private final UserCache userCache;
+
+
+
+    private final Action1<User> saveToCacheAction = user -> {
+        if (user != null){
+            try {
+                CloudUserDataStore.this.userCache.put(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            CloudUserDataStore.this.networkServices.setLoginUser(user);
+        }
     };
 
-    public CloudUserDataStore(NetworkServices NetworkServices) {
-        this.NetworkServices = NetworkServices;
+    public CloudUserDataStore(NetworkServices NetworkServices,UserCache userCache) {
+        this.networkServices = NetworkServices;
+        this.userCache = userCache;
     }
 
     @Override
     public Observable<User> user(String username, String password) {
-        return this.NetworkServices.userEntityBy(username,password);
+        return this.networkServices.userEntityBy(username,password).doOnNext(saveToCacheAction);
     }
 }

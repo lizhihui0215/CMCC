@@ -11,5 +11,9 @@ import rx.Observable;
 public interface NetworkServices {
     String API_BASE_URL = "http:/114.251.247.82:8080/";
 
+    public User getLoginUser();
+
+    public void setLoginUser(User loginUser);
+
     Observable<User> userEntityBy(String username, String password);
 }

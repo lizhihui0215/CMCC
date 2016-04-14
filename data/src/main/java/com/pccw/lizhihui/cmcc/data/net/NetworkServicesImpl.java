@@ -39,10 +39,12 @@ public class NetworkServicesImpl implements NetworkServices {
         this.setupRetrofit();
     }
 
+    @Override
     public User getLoginUser() {
-        return loginUser;
+        return this.loginUser;
     }
 
+    @Override
     public void setLoginUser(User loginUser) {
         this.loginUser = loginUser;
     }

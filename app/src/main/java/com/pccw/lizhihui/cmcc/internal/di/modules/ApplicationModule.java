@@ -43,8 +43,6 @@ public class ApplicationModule {
         return userCache;
     }
 
-
-
     @Provides @Singleton HomeRepository provideHomeRepository(HomeDataRepository homeDataRepository){
         return homeDataRepository;
     }

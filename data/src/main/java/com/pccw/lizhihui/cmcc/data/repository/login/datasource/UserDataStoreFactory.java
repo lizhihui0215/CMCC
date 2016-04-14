@@ -2,6 +2,7 @@ package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
 import android.content.Context;
 
+import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
 import com.pccw.lizhihui.cmcc.data.net.NetworkServicesImpl;
 
@@ -13,14 +14,17 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class UserDataStoreFactory {
+    private final UserCache userCache;
     private Context context;
 
     @Inject
-    public UserDataStoreFactory(Context context){
+    public UserDataStoreFactory(Context context, UserCache userCache){
         if (context == null) {
             throw new IllegalArgumentException("Constructor parameters cannot be null!!!");
         }
         this.context = context;
+
+        this.userCache = userCache;
     }
 
     public UserDataStore create(String username, String password){
@@ -36,10 +40,10 @@ public class UserDataStoreFactory {
 
     private UserDataStore createCloudDataStore() {
 
-        NetworkServices NetworkServices = new NetworkServicesImpl(this.context);
+        NetworkServices networkServices = new NetworkServicesImpl(this.context);
 
 
-        return new CloudUserDataStore(NetworkServices);
+        return new CloudUserDataStore(networkServices,this.userCache);
     }
 
 }

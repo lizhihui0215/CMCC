@@ -50,4 +50,8 @@ public class FileManager {
     public boolean exists(File file) {
         return file.exists();
     }
+
+    public boolean delete(File file){
+        return file.delete();
+    }
 }

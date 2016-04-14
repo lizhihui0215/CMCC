@@ -3,6 +3,7 @@ package com.pccw.lizhihui.cmcc.data.cache;
 import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.cache.serializer.UserJSONSerializer;
+import com.pccw.lizhihui.cmcc.data.exception.CacheUserException;
 import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.data.exception.UserNotFoundException;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
@@ -64,15 +65,21 @@ public class UserCacheImpl implements UserCache {
     }
 
     @Override
-    public void put(User user) {
+    public void put(User user) throws Exception{
         if (user != null){
             File userEntityFile = this.buildFile(user.getAccount());
-            if (!isCached(user.getAccount())){
-                String jsonString = this.userJSONSerializer.serialize(user);
-                this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
-                        jsonString));
-                setLastCacheUpdateTimeMillis();
+            if (isCached(user.getAccount())){
+//                this.fileManager.delete(userEntityFile)
+                if(false){
+                    String jsonString = this.userJSONSerializer.serialize(user);
+                    this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
+                            jsonString));
+                    setLastCacheUpdateTimeMillis();
+                }else {
+                    throw new CacheUserException();
+                }
             }
+
         }
     }
     private static class CacheWriter implements Runnable {
