@@ -4,12 +4,10 @@ import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.AndroidApplication;
 import com.pccw.lizhihui.cmcc.UIThread;
-import com.pccw.lizhihui.cmcc.data.cache.HomeCache;
-import com.pccw.lizhihui.cmcc.data.cache.HomeCacheImpl;
 import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.cache.UserCacheImpl;
-import com.pccw.lizhihui.cmcc.data.repository.HomeDataRepository;
-import com.pccw.lizhihui.cmcc.data.repository.UserDataRepository;
+import com.pccw.lizhihui.cmcc.data.repository.home.HomeDataRepository;
+import com.pccw.lizhihui.cmcc.data.repository.login.UserDataRepository;
 import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
@@ -55,8 +53,6 @@ public class ApplicationModule {
         return userDataRepository;
     }
 
-    @Provides @Singleton HomeCache provideHomeCache(HomeCacheImpl homeCacheImpl){
-        return homeCacheImpl;
-    }
+
 
 }

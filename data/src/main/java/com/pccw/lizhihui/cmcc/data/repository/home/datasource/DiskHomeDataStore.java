@@ -1,7 +1,6 @@
-package com.pccw.lizhihui.cmcc.data.repository.datasource;
+package com.pccw.lizhihui.cmcc.data.repository.home.datasource;
 
 import com.pccw.lizhihui.cmcc.data.R;
-import com.pccw.lizhihui.cmcc.data.cache.HomeCache;
 import com.pccw.lizhihui.cmcc.data.entity.HomeEntity;
 import com.pccw.lizhihui.cmcc.domain.Province;
 
@@ -16,10 +15,9 @@ import rx.Observable;
  */
 public class DiskHomeDataStore implements HomeDataStore {
 
-    private final HomeCache homeCache;
 
-    public DiskHomeDataStore(HomeCache homeCache) {
-        this.homeCache = homeCache;
+    public DiskHomeDataStore() {
+
     }
 
     @Override

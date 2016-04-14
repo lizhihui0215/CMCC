@@ -53,7 +53,6 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
         }
     }
 
-
     @Override
     public LoginComponent getComponent() {
         return this.loginComponent;

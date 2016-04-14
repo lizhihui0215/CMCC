@@ -8,6 +8,8 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import rx.Subscriber;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by lizhihui on 4/1/16.
@@ -30,6 +32,24 @@ public class LoginGetUser extends LoginCase {
     @Override
     protected Observable buildLoginUseCaseObservable() {
         return this.loginRepository.user(this.username,this.password);
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    protected void execute(Subscriber UseCaseSubscriber) {
+        this.subscription = this.buildLoginUseCaseObservable()
+                .doOnNext(new LoginGetUser.LoginSubscriber())
+                .subscribeOn(Schedulers.from(this.threadExecutor))
+                .observeOn(postExecutionThread.getScheduler())
+                .subscribe(UseCaseSubscriber);
+    }
+
+    private final class LoginSubscriber  implements Action1 {
+
+        @Override
+        public void call(Object o) {
+            Object test = o;
+        }
     }
 
     public void login(String username, String password,

@@ -1,8 +1,8 @@
-package com.pccw.lizhihui.cmcc.data.repository;
+package com.pccw.lizhihui.cmcc.data.repository.home;
 
 import com.pccw.lizhihui.cmcc.data.entity.mapper.HomeEntityDataMapper;
-import com.pccw.lizhihui.cmcc.data.repository.datasource.HomeDataStore;
-import com.pccw.lizhihui.cmcc.data.repository.datasource.HomeDataStoreFactory;
+import com.pccw.lizhihui.cmcc.data.repository.home.datasource.HomeDataStore;
+import com.pccw.lizhihui.cmcc.data.repository.home.datasource.HomeDataStoreFactory;
 import com.pccw.lizhihui.cmcc.domain.HomeItem;
 import com.pccw.lizhihui.cmcc.domain.Province;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;

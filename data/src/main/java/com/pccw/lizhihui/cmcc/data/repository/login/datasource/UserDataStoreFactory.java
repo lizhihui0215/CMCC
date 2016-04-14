@@ -1,9 +1,9 @@
-package com.pccw.lizhihui.cmcc.data.repository.datasource;
+package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
 import android.content.Context;
 
-import com.pccw.lizhihui.cmcc.data.net.RestAPI;
-import com.pccw.lizhihui.cmcc.data.net.RestAPIImpl;
+import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
+import com.pccw.lizhihui.cmcc.data.net.NetworkServicesImpl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -36,10 +36,10 @@ public class UserDataStoreFactory {
 
     private UserDataStore createCloudDataStore() {
 
-        RestAPI restAPI = new RestAPIImpl(this.context);
+        NetworkServices NetworkServices = new NetworkServicesImpl(this.context);
 
 
-        return new CloudUserDataStore(restAPI);
+        return new CloudUserDataStore(NetworkServices);
     }
 
 }
