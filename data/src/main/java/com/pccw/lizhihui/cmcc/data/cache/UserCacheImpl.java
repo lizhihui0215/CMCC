@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.cache.serializer.UserJSONSerializer;
 import com.pccw.lizhihui.cmcc.data.exception.CacheUserException;
-import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.data.exception.UserNotFoundException;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 

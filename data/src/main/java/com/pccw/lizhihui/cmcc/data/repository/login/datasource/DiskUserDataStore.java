@@ -1,7 +1,5 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
-import com.pccw.lizhihui.cmcc.domain.User;
-
 import rx.Observable;
 
 /**

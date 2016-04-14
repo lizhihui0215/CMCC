@@ -3,7 +3,6 @@ package com.pccw.lizhihui.cmcc.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.LoginCase;
 import com.pccw.lizhihui.cmcc.view.LoginView;

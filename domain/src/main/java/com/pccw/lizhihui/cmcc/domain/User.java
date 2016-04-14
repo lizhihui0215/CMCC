@@ -77,6 +77,13 @@ public class User {
         private String parentCode;
         private String deptId;
 
+//        public Deparment(String deptName, String deptCode, String parentCode, String deptId) {
+//            this.deptName = deptName;
+//            this.deptCode = deptCode;
+//            this.parentCode = parentCode;
+//            this.deptId = deptId;
+//        }
+
         public String getDeptName() {
             return deptName;
         }

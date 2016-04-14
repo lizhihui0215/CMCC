@@ -48,8 +48,8 @@ ext{
         retrofit:               "com.squareup.retrofit2:retrofit:${retrofitVersion}",
         retrofitConverterGson:  "com.squareup.retrofit2:converter-gson:${retrofitConverterGsonVersion}",
         retrofitCallAdapter:    "com.squareup.retrofit2:adapter-rxjava:${retrofitCallAdapterVersion}",
+        okhttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okhttp3LoggingInterceptorVersion}",
         greendao:               "de.greenrobot:greendao:${greendaoVersion}",
-        okhttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okhttp3LoggingInterceptorVersion}"
     ]
 
     developmentDependencies = [

@@ -3,7 +3,6 @@ package com.pccw.lizhihui.cmcc.data.net;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
-import com.pccw.lizhihui.cmcc.domain.User;
 
 import retrofit2.http.Body;
 import retrofit2.http.POST;

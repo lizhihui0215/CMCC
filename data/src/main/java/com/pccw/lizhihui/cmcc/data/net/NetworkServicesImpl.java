@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
+import com.pccw.lizhihui.cmcc.data.greendao.db.UserEntity;
 import com.pccw.lizhihui.cmcc.domain.User;
 
 import javax.inject.Singleton;
@@ -15,6 +16,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.functions.Func1;
+
 
 /**
  * Created by lizhihui on 4/1/16.
@@ -67,7 +69,7 @@ public class NetworkServicesImpl implements NetworkServices {
         UserService service = this.retrofit.create(UserService.class);
         LoginParameters loginParameters = new LoginParameters(username, password);
 
-        return service.getUser(loginParameters).map(new HTTPResultFunc<User>());
+        return service.getUser(loginParameters).map(new HTTPResultFunc<UserEntity>());
     }
 
     private class HTTPResultFunc<T> implements Func1<HTTPResult<T>, T>{
