@@ -9,7 +9,7 @@ import rx.Observable;
  */
 public interface UserCache {
 
-    Observable<UserEntity> get(String account, String password);
+    Observable<UserEntity> get();
 
     void put(UserEntity user) throws Exception;
 

@@ -15,9 +15,6 @@ android {
         versionName globalConfiguration.getAt("androidVersionName")
     }
     buildTypes {
-        debug{
-            ext.enableCrashlytics = false
-        }
 
         release {
             minifyEnabled false

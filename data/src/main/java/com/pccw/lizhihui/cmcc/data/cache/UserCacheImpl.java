@@ -25,7 +25,7 @@ public class UserCacheImpl implements UserCache {
     private static final String SETTINGS_FILE_NAME = "com.fernandocejas.android10.SETTINGS";
 
     private static final String SETTINGS_KEY_LAST_CACHE_UPDATE = "last_cache_update";
-    private static final String DEFAULT_FILE_NAME = "user_";
+    private static final String DEFAULT_FILE_NAME = "last_login_user";
 
     private final Context context;
     private final File cacheDir;
@@ -49,9 +49,9 @@ public class UserCacheImpl implements UserCache {
 
 
     @Override
-    public Observable<UserEntity> get(String account, String password) {
+    public Observable<UserEntity> get() {
         return Observable.create(subscriber -> {
-            File userEntityFile = UserCacheImpl.this.buildFile(account);
+            File userEntityFile = UserCacheImpl.this.buildFile();
             String fileContent = UserCacheImpl.this.fileManager.readFileContent(userEntityFile);
             UserEntity user = UserCacheImpl.this.userJSONSerializer.deserialize(fileContent);
 
@@ -67,8 +67,8 @@ public class UserCacheImpl implements UserCache {
     @Override
     public void put(UserEntity user) throws Exception{
         if (user != null){
-            File userEntityFile = this.buildFile(user.getAccount());
-            if (isCached(user.getAccount())){
+            if (isCached()){
+                File userEntityFile = this.buildFile();
                 if(this.fileManager.delete(userEntityFile)){
                     String jsonString = this.userJSONSerializer.serialize(user);
                     this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
@@ -106,18 +106,17 @@ public class UserCacheImpl implements UserCache {
         this.threadExecutor.execute(runnable);
     }
 
-    private boolean isCached(String account) {
-        File userEntitiyFile = this.buildFile(account);
+    private boolean isCached() {
+        File userEntitiyFile = this.buildFile();
         return this.fileManager.exists(userEntitiyFile);
     }
 
 
-    private File buildFile(String account) {
+    private File buildFile() {
         StringBuilder fileNameBuilder = new StringBuilder();
         fileNameBuilder.append(this.cacheDir.getPath());
         fileNameBuilder.append(File.separator);
         fileNameBuilder.append(DEFAULT_FILE_NAME);
-        fileNameBuilder.append(account);
 
         return new File(fileNameBuilder.toString());
     }

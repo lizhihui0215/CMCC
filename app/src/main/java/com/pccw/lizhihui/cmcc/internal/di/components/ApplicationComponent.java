@@ -8,6 +8,7 @@ import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ApplicationModule;
 import com.pccw.lizhihui.cmcc.view.activity.BaseActivity;
+import com.pccw.lizhihui.cmcc.view.activity.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -21,6 +22,8 @@ import dagger.Component;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
     void inject(BaseActivity baseActivity);
+
+    void inject(MainActivity mainActivity);
 
     //Exposed to sub-graphs
     Context context();

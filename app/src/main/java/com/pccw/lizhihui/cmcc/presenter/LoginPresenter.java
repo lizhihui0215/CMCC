@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
-import com.pccw.lizhihui.cmcc.domain.interactor.LoginCase;
+import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.view.LoginView;
 
 import javax.inject.Inject;
@@ -19,10 +19,10 @@ public class LoginPresenter implements Presenter {
 
     private LoginView loginView;
 
-    private LoginCase getUserUseCase;
+    private UseCase getUserUseCase;
 
     @Inject
-    public LoginPresenter(@Named("login") LoginCase getUserUseCase){
+    public LoginPresenter(@Named("login") UseCase getUserUseCase){
         this.getUserUseCase = getUserUseCase;
     }
 
@@ -47,7 +47,7 @@ public class LoginPresenter implements Presenter {
     }
 
     public void login(String username, String password) {
-        this.getUserUseCase.login(username,password,new LoginSubscriber());
+        this.getUserUseCase.execute(new LoginSubscriber(),username,password);
     }
 
 

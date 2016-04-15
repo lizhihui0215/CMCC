@@ -3,7 +3,7 @@ package com.pccw.lizhihui.cmcc.presenter;
 import android.support.annotation.NonNull;
 import com.pccw.lizhihui.cmcc.domain.HomeItem;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
-import com.pccw.lizhihui.cmcc.domain.interactor.HomeCase;
+import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.mapper.HomeModelDataMapper;
 import com.pccw.lizhihui.cmcc.model.HomeModel;
 import com.pccw.lizhihui.cmcc.view.HomeView;
@@ -19,14 +19,14 @@ public class HomePresenter implements Presenter {
 
     private HomeView homeView;
 
-    private final HomeCase getHomeListUseCase;
+    private final UseCase getHomeListUseCase;
 
-    private final HomeCase getTaskNumberUseCase;
+    private final UseCase getTaskNumberUseCase;
 
     private final HomeModelDataMapper homeModelDataMapper;
 
-    @Inject public HomePresenter(@Named("homeTaskNumber") HomeCase getTaskNumberUseCase,
-                                 @Named("homeList") HomeCase getHomeListUseCase,
+    @Inject public HomePresenter(@Named("homeTaskNumber") UseCase getTaskNumberUseCase,
+                                 @Named("homeList") UseCase getHomeListUseCase,
                                  HomeModelDataMapper homeModelDataMapper){
         this.getHomeListUseCase = getHomeListUseCase;
         this.homeModelDataMapper = homeModelDataMapper;

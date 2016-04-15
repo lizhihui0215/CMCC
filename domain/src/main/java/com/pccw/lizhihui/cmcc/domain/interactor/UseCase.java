@@ -6,30 +6,33 @@ import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.schedulers.Schedulers;
 import rx.subscriptions.Subscriptions;
 
 /**
  * Created by lizhihui on 4/1/16.
  */
-public abstract class LoginCase {
+public abstract class UseCase {
     protected final ThreadExecutor threadExecutor;
 
     protected final PostExecutionThread postExecutionThread;
 
     protected Subscription subscription = Subscriptions.empty();
 
-    protected LoginCase(ThreadExecutor threadExecutor,
-                        PostExecutionThread postExecutionThread){
+    protected UseCase(ThreadExecutor threadExecutor,
+                      PostExecutionThread postExecutionThread){
         this.threadExecutor = threadExecutor;
         this.postExecutionThread = postExecutionThread;
     }
 
-    protected abstract Observable buildLoginUseCaseObservable();
+    protected abstract Observable buildUseCaseObservable(Object ...args);
+
     @SuppressWarnings("unchecked")
-    protected abstract void execute(Subscriber UseCaseSubscriber) ;
+    public void execute(Subscriber UseCaseSubscriber, Object ...args) {
+        this.subscription = this.buildUseCaseObservable(args)
+                .subscribeOn(Schedulers.from(threadExecutor))
+                .observeOn(postExecutionThread.getScheduler())
+                .subscribe(UseCaseSubscriber);
+    }
 
-
-
-
-    public abstract void login(String username, String password, Subscriber UseCaseSubscriber);
 }

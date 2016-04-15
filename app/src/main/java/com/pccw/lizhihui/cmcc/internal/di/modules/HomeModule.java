@@ -1,9 +1,11 @@
 package com.pccw.lizhihui.cmcc.internal.di.modules;
 
 import com.pccw.lizhihui.cmcc.domain.Province;
+import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
+import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.interactor.GetHomeList;
 import com.pccw.lizhihui.cmcc.domain.interactor.GetTaskNumber;
-import com.pccw.lizhihui.cmcc.domain.interactor.HomeCase;
+import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import javax.inject.Named;
@@ -22,11 +24,12 @@ public class HomeModule {
         this.province = province;
     }
 
-    @Provides @PerActivity @Named("homeList") HomeCase provideGetHomeListUseCase(HomeRepository homeRepository){
-        return new GetHomeList(this.province,homeRepository);
+    @Provides @PerActivity @Named("homeList") UseCase provideGetHomeListUseCase(HomeRepository homeRepository, ThreadExecutor threadExecutor,
+                                                                                PostExecutionThread postExecutionThread){
+        return new GetHomeList(this.province,homeRepository,threadExecutor,postExecutionThread);
     }
 
-    @Provides @PerActivity @Named("homeTaskNumber") HomeCase provideGetHomeNumberUseCase(HomeRepository homeRepository){
-        return new GetTaskNumber(homeRepository);
+    @Provides @PerActivity @Named("homeTaskNumber") UseCase provideGetHomeNumberUseCase(GetTaskNumber getTaskNumber){
+        return getTaskNumber;
     }
 }

@@ -1,11 +1,19 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
+import android.content.Entity;
+
 import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.database.DBAction1;
 import com.pccw.lizhihui.cmcc.data.database.Database;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.DepartmentEntity;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.DepartmentEntityDao;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntityDao;
 import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
+
+import java.util.List;
+
+import de.greenrobot.dao.AbstractDao;
 import rx.Observable;
 import rx.functions.Action1;
 
@@ -15,27 +23,29 @@ import rx.functions.Action1;
  */
 public class CloudUserDataStore implements UserDataStore {
 
-    private final NetworkServices networkServices;
+    private NetworkServices networkServices;
 
-    private final UserCache userCache;
+    private UserCache userCache;
 
-    private final Database database;
+    private Database database;
 
-    private final DBAction1<UserEntityDao, UserEntity> saveToDBAction = (userEntityDao, userEntity) -> {
-        userEntityDao.insert(userEntity);
+    private final DBAction1<UserEntityDao, UserEntity> saveUserToDBAction = AbstractDao::insert;
+
+    private final DBAction1<DepartmentEntityDao,List<DepartmentEntity>> saveDepartmentToDBAction = (departmentEntityDao, departmentEntitys) -> {
+        departmentEntityDao.insertInTx(departmentEntitys);
     };
 
     private final Action1<UserEntity> saveToCacheAction = user -> {
         if (user != null){
             try {
-                CloudUserDataStore.this.userCache.put(user);
+                this.userCache.put(user);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            CloudUserDataStore.this.database.call(this.saveToDBAction, user);
+            this.saveToDB(user);
 
-            CloudUserDataStore.this.networkServices.setLoginUser(user);
+            this.networkServices.setLoginUser(user);
         }
     };
 
@@ -43,6 +53,17 @@ public class CloudUserDataStore implements UserDataStore {
         this.networkServices = networkServices;
         this.userCache = userCache;
         this.database = database;
+    }
+
+    @SuppressWarnings("unchecked")
+    private void saveToDB(UserEntity user) {
+        this.database.call(this.saveUserToDBAction, user);
+
+        List<DepartmentEntity> deptList = user.getDeptList();
+
+        for (DepartmentEntity departmentEntity : deptList) departmentEntity.setDepartmentId(user.getId());
+
+        this.database.call(CloudUserDataStore.this.saveDepartmentToDBAction,deptList);
     }
 
     @Override
