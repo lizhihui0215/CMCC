@@ -1,4 +1,4 @@
-package com.pccw.lizhihui.greendao.gen;
+package com.pccw.lizhihui.greendao;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
