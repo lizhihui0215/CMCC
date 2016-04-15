@@ -1,7 +1,7 @@
 package com.pccw.lizhihui.cmcc.data.cache.serializer;
 
 import com.google.gson.Gson;
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,13 +17,13 @@ public class UserJSONSerializer {
     @Inject
     public UserJSONSerializer(){}
 
-    public String serialize(User user){
-        String jsonString = gson.toJson(user, User.class);
+    public String serialize(UserEntity user){
+        String jsonString = gson.toJson(user, UserEntity.class);
         return jsonString;
     }
 
-    public User deserialize(String jsonString){
-        User user = gson.fromJson(jsonString, User.class);
+    public UserEntity deserialize(String jsonString){
+        UserEntity user = gson.fromJson(jsonString, UserEntity.class);
         return user;
     }
 

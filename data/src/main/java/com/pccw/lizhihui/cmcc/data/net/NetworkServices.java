@@ -1,7 +1,7 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 
 import rx.Observable;
 
@@ -12,9 +12,9 @@ import rx.Observable;
 public interface NetworkServices {
     String API_BASE_URL = "http:/114.251.247.82:8080/";
 
-    public User getLoginUser();
+    public UserEntity getLoginUser();
 
-    public void setLoginUser(User loginUser);
+    public void setLoginUser(UserEntity loginUser);
 
-    Observable<User> userEntityBy(String username, String password);
+    Observable<UserEntity> userEntityBy(String username, String password);
 }

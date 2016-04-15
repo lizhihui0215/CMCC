@@ -1,6 +1,6 @@
 package com.pccw.lizhihui.cmcc.data.cache;
 
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 
 import rx.Observable;
 
@@ -9,8 +9,8 @@ import rx.Observable;
  */
 public interface UserCache {
 
-    Observable<User> get(String account, String password);
+    Observable<UserEntity> get(String account, String password);
 
-    void put(User user) throws Exception;
+    void put(UserEntity user) throws Exception;
 
 }

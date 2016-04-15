@@ -4,10 +4,8 @@ import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
-import com.pccw.lizhihui.cmcc.domain.User;
-
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 import javax.inject.Singleton;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -27,7 +25,7 @@ public class NetworkServicesImpl implements NetworkServices {
 
     private final Context context;
 
-    private User loginUser;
+    private UserEntity loginUser;
 
     protected Retrofit retrofit;
 
@@ -41,12 +39,12 @@ public class NetworkServicesImpl implements NetworkServices {
     }
 
     @Override
-    public User getLoginUser() {
+    public UserEntity getLoginUser() {
         return this.loginUser;
     }
 
     @Override
-    public void setLoginUser(User loginUser) {
+    public void setLoginUser(UserEntity loginUser) {
         this.loginUser = loginUser;
     }
 
@@ -63,9 +61,9 @@ public class NetworkServicesImpl implements NetworkServices {
     }
 
     @Override
-    public Observable<User> userEntityBy(String username, String password) {
-
+    public Observable<UserEntity> userEntityBy(String username, String password) {
         UserService service = this.retrofit.create(UserService.class);
+
         LoginParameters loginParameters = new LoginParameters(username, password);
 
         return service.getUser(loginParameters).map(new HTTPResultFunc<UserEntity>());

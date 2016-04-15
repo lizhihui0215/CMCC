@@ -5,7 +5,7 @@ import android.content.Context;
 import com.pccw.lizhihui.cmcc.data.cache.serializer.UserJSONSerializer;
 import com.pccw.lizhihui.cmcc.data.exception.CacheUserException;
 import com.pccw.lizhihui.cmcc.data.exception.UserNotFoundException;
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 
 import java.io.File;
@@ -49,11 +49,11 @@ public class UserCacheImpl implements UserCache {
 
 
     @Override
-    public Observable<User> get(String account, String password) {
+    public Observable<UserEntity> get(String account, String password) {
         return Observable.create(subscriber -> {
             File userEntityFile = UserCacheImpl.this.buildFile(account);
             String fileContent = UserCacheImpl.this.fileManager.readFileContent(userEntityFile);
-            User user = UserCacheImpl.this.userJSONSerializer.deserialize(fileContent);
+            UserEntity user = UserCacheImpl.this.userJSONSerializer.deserialize(fileContent);
 
             if (user != null){
                 subscriber.onNext(user);
@@ -65,12 +65,11 @@ public class UserCacheImpl implements UserCache {
     }
 
     @Override
-    public void put(User user) throws Exception{
+    public void put(UserEntity user) throws Exception{
         if (user != null){
             File userEntityFile = this.buildFile(user.getAccount());
             if (isCached(user.getAccount())){
-//                this.fileManager.delete(userEntityFile)
-                if(false){
+                if(this.fileManager.delete(userEntityFile)){
                     String jsonString = this.userJSONSerializer.serialize(user);
                     this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
                             jsonString));

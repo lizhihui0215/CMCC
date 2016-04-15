@@ -1,6 +1,6 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
-import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 
 import rx.Observable;
 
@@ -10,5 +10,5 @@ import rx.Observable;
  */
 public interface UserDataStore {
 
-    Observable<User> user(String username, String password);
+    Observable<UserEntity> user(String username, String password);
 }

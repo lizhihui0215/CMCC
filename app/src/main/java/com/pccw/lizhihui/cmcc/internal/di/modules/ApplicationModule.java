@@ -6,6 +6,8 @@ import com.pccw.lizhihui.cmcc.AndroidApplication;
 import com.pccw.lizhihui.cmcc.UIThread;
 import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.cache.UserCacheImpl;
+import com.pccw.lizhihui.cmcc.data.database.Database;
+import com.pccw.lizhihui.cmcc.data.database.DatabaseImpl;
 import com.pccw.lizhihui.cmcc.data.repository.home.HomeDataRepository;
 import com.pccw.lizhihui.cmcc.data.repository.login.UserDataRepository;
 import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
@@ -49,6 +51,10 @@ public class ApplicationModule {
 
     @Provides @Singleton LoginRepository provideLoginRepository(UserDataRepository userDataRepository){
         return userDataRepository;
+    }
+
+    @Provides @Singleton Database provideDatabase(DatabaseImpl database){
+        return database;
     }
 
 

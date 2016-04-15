@@ -3,6 +3,7 @@ package com.pccw.lizhihui.cmcc.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.LoginCase;
 import com.pccw.lizhihui.cmcc.view.LoginView;
@@ -12,6 +13,7 @@ import javax.inject.Named;
 
 /**
  * Created by lizhihui on 4/1/16.
+ *
  */
 public class LoginPresenter implements Presenter {
 
@@ -53,7 +55,6 @@ public class LoginPresenter implements Presenter {
         @Override
         public void onCompleted() {
             Log.v("completed " , "login");
-
         }
 
         @Override
@@ -64,7 +65,6 @@ public class LoginPresenter implements Presenter {
         @Override
         public void onNext(User user) {
             Log.v("next " + user , "login");
-
         }
     }
 }
