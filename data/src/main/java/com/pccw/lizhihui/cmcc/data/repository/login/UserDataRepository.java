@@ -1,10 +1,11 @@
 package com.pccw.lizhihui.cmcc.data.repository.login;
 
-import com.pccw.lizhihui.cmcc.data.greendao.db.User;
 import com.pccw.lizhihui.cmcc.data.repository.login.datasource.UserDataStore;
 import com.pccw.lizhihui.cmcc.data.repository.login.datasource.UserDataStoreFactory;
 import com.pccw.lizhihui.cmcc.data.repository.login.datasource.UserEntityDataMapper;
+import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
+import com.pccw.lizhihui.cmcc.data.greendao.db.UserEntity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
