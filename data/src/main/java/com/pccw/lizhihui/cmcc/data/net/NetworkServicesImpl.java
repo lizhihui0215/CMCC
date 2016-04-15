@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
-import com.pccw.lizhihui.cmcc.data.greendao.db.UserEntity;
 import com.pccw.lizhihui.cmcc.domain.User;
 
 import javax.inject.Singleton;

@@ -1,7 +1,7 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
-import com.pccw.lizhihui.cmcc.data.greendao.db.DepartmentEntity;
-import com.pccw.lizhihui.cmcc.data.greendao.db.UserEntity;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.DepartmentEntity;
+import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.User.Deparment;
 
@@ -30,7 +30,7 @@ public class UserEntityDataMapper {
         return user;
     }
 
-    public List<Deparment> transform(List<DepartmentEntity> departmentEntities,User user){
+    public List<Deparment> transform(List<DepartmentEntity> departmentEntities, User user){
 
         List<Deparment> deparments = new ArrayList<>();
 

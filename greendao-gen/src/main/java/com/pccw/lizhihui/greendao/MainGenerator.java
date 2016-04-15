@@ -9,7 +9,7 @@ public class MainGenerator {
     private static final String PROJECT_DIR = System.getProperty("user.dir");
 
     public static void main(String[] args) throws Exception{
-        Schema schema = new Schema(1000,"com.pccw.lizhihui.cmcc.data.greendao.db");
+        Schema schema = new Schema(1000,"com.pccw.lizhihui.cmcc.data.greendao.gen");
         MainGenerator.addTables(schema);
 
         DaoGenerator daoGenerator =  new DaoGenerator();
@@ -23,16 +23,16 @@ public class MainGenerator {
 
         Entity department = addDepartment(schema);
 
-        Property departmentId = user.addLongProperty("departmentId").getProperty();
+        Property departmentId = department.addLongProperty("departmentId").notNull().getProperty();
 
-        department.addToOne(user,departmentId);
+        department.addToOne(user,departmentId,"user");
 
         user.addToMany(department, departmentId, "deptList");
     }
 
     private static Entity addDepartment(final Schema schema){
         Entity department = schema.addEntity("DepartmentEntity");
-        department.addIdProperty().primaryKey().autoincrement();
+        department.addIdProperty();
         department.addStringProperty("deptName");
         department.addStringProperty("deptCode");
         department.addStringProperty("parentCode");
