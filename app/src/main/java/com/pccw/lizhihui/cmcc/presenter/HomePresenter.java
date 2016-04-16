@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import com.pccw.lizhihui.cmcc.domain.HomeItem;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
+import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.mapper.HomeModelDataMapper;
 import com.pccw.lizhihui.cmcc.model.HomeModel;
 import com.pccw.lizhihui.cmcc.view.HomeView;
@@ -15,6 +16,7 @@ import javax.inject.Named;
  * Created by lizhihui on 3/30/16.
  *
  */
+@PerActivity
 public class HomePresenter implements Presenter {
 
     private HomeView homeView;

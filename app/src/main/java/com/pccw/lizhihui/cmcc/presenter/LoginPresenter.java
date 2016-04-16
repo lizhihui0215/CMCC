@@ -6,6 +6,7 @@ import android.util.Log;
 import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
+import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.view.LoginView;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import javax.inject.Named;
  * Created by lizhihui on 4/1/16.
  *
  */
+@PerActivity
 public class LoginPresenter implements Presenter {
 
     private LoginView loginView;

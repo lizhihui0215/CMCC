@@ -6,9 +6,7 @@ import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.domain.interactor.Login;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-
 import javax.inject.Named;
-
 import dagger.Module;
 import dagger.Provides;
 

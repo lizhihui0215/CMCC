@@ -1,6 +1,8 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
@@ -76,4 +78,6 @@ public class NetworkServicesImpl implements NetworkServices {
             return (T) tBaseEntity.getResults();
         }
     }
+
+
 }

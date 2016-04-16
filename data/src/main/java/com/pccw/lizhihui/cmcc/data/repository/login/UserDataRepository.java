@@ -18,7 +18,7 @@ import rx.Observable;
 @Singleton
 public class UserDataRepository implements LoginRepository{
 
-    private final UserDataStoreFactory userDataStoreFactory ;
+    private final UserDataStoreFactory userDataStoreFactory;
 
     private final UserEntityDataMapper userEntityDataMapper;
 

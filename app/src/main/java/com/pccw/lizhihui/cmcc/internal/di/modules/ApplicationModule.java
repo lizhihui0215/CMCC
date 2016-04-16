@@ -8,12 +8,15 @@ import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.cache.UserCacheImpl;
 import com.pccw.lizhihui.cmcc.data.database.Database;
 import com.pccw.lizhihui.cmcc.data.database.DatabaseImpl;
+import com.pccw.lizhihui.cmcc.data.net.NetworkReachbaliltyManager;
 import com.pccw.lizhihui.cmcc.data.repository.home.HomeDataRepository;
 import com.pccw.lizhihui.cmcc.data.repository.login.UserDataRepository;
+import com.pccw.lizhihui.cmcc.data.repository.main.LaunchDataRepository;
 import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
+import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 
 import javax.inject.Singleton;
@@ -51,6 +54,14 @@ public class ApplicationModule {
 
     @Provides @Singleton LoginRepository provideLoginRepository(UserDataRepository userDataRepository){
         return userDataRepository;
+    }
+
+    @Provides @Singleton LaunchRepository provideLaunchRepository(LaunchDataRepository launchRepository){
+        return launchRepository;
+    }
+
+    @Provides @Singleton NetworkReachbaliltyManager provideNetworkReachbaliltyManager(NetworkReachbaliltyManager networkReachbaliltyManager){
+        return networkReachbaliltyManager;
     }
 
     @Provides @Singleton Database provideDatabase(DatabaseImpl database){

@@ -2,9 +2,11 @@ package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import android.content.Context;
 
+import com.pccw.lizhihui.cmcc.data.net.NetworkReachbaliltyManager;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
+import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ApplicationModule;
 import com.pccw.lizhihui.cmcc.view.activity.BaseActivity;

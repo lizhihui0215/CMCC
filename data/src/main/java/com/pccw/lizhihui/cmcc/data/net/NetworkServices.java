@@ -17,4 +17,5 @@ public interface NetworkServices {
     public void setLoginUser(UserEntity loginUser);
 
     Observable<UserEntity> userEntityBy(String username, String password);
+
 }
