@@ -14,12 +14,11 @@ import javax.inject.Singleton;
 @Singleton
 public class LaunchDataOptionFactory {
 
-    private final NetworkReachbaliltyManager networkReachbaliltyManager;
+    @Inject NetworkReachbaliltyManager networkReachbaliltyManager;
     private final UserCache userCache;
 
     @Inject
-    public LaunchDataOptionFactory(NetworkReachbaliltyManager networkReachbaliltyManager, UserCache userCache){
-        this.networkReachbaliltyManager = networkReachbaliltyManager;
+    public LaunchDataOptionFactory( UserCache userCache){
         this.userCache = userCache;
     }
 

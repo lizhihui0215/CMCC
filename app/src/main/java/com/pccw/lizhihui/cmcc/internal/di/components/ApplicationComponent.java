@@ -26,7 +26,6 @@ public interface ApplicationComponent {
     void inject(BaseActivity baseActivity);
 
     void inject(MainActivity mainActivity);
-
     //Exposed to sub-graphs
     Context context();
     ThreadExecutor threadExecutor();

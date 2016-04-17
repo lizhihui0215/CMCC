@@ -19,15 +19,15 @@ import javax.inject.Named;
  */
 public class MainPresenter implements Presenter {
 
-//    private final UseCase launchOptionUseCase;
+    private final UseCase launchOptionUseCase;
 
     @Inject
-    public MainPresenter(@Named("login") UseCase getUserUseCase) {
-//        this.launchOptionUseCase = test;
+    public MainPresenter(@Named("GetLaunchOption") UseCase getUserUseCase) {
+        this.launchOptionUseCase = getUserUseCase;
     }
 
     public void test(){
-//        this.launchOptionUseCase.execute(new LaunchOptionSubscriber());
+        this.launchOptionUseCase.execute(new LaunchOptionSubscriber());
     }
 
     private final class LaunchOptionSubscriber extends DefaultSubscriber<LaunchOption> {

@@ -3,8 +3,10 @@ package com.pccw.lizhihui.cmcc.data.cache;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -18,8 +20,25 @@ public class FileManager {
     public FileManager(){}
 
     public String readFileContent(File userEntityFile) {
-        return null;
-    }
+        StringBuilder fileContentBuilder = new StringBuilder();
+        if (userEntityFile.exists()) {
+            String stringLine;
+            try {
+                FileReader fileReader = new FileReader(userEntityFile);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                while ((stringLine = bufferedReader.readLine()) != null) {
+                    fileContentBuilder.append(stringLine + "\n");
+                }
+                bufferedReader.close();
+                fileReader.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return fileContentBuilder.toString();    }
 
     public void writeToPreferences(Context context, String preferenceFileName, String key,
                                    long value) {

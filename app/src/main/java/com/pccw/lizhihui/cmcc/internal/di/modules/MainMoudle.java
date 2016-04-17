@@ -1,10 +1,16 @@
 package com.pccw.lizhihui.cmcc.internal.di.modules;
 
+import com.pccw.lizhihui.cmcc.domain.LaunchOption;
+import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
+import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.interactor.GetLaunchOption;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
+import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 
+import javax.annotation.PreDestroy;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,9 +21,4 @@ import dagger.Provides;
 @Module
 public class MainMoudle {
     public MainMoudle(){}
-
-    @Provides @PerActivity @Named("launchOption") UseCase provideLaunchOptionUseCase(GetLaunchOption getLaunchOption) {
-        return getLaunchOption;
-    }
-
 }

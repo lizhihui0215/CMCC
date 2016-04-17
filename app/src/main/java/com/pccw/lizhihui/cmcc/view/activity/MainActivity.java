@@ -21,11 +21,11 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.getApplicationComponent().inject(this);
-
         this.initializeInjector();
 
+        this.getApplicationComponent().inject(this);
         this.navigator.navigateToLogin(this);
+        this.mainPresenter.test();
     }
 
     private void initializeInjector() {

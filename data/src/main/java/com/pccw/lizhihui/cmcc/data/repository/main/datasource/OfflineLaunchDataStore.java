@@ -20,16 +20,14 @@ public class OfflineLaunchDataStore implements LaunchOptionStore{
 
     @Override
     public Observable<LaunchOption> launchOption() {
+        return this.userCache.get().concatMap((Func1<UserEntity, Observable<LaunchOption>>) userEntity -> Observable.create(subs->{
 
-        Observable<LaunchOption> objectObservable = this.userCache.get().concatMap((Func1<UserEntity, Observable<LaunchOption>>) userEntity -> Observable.create(subs->{
             if (userEntity == null)
                 subs.onNext(LaunchOption.LAUNCH_OPTION_FROM_LOGIN);
             else
                 subs.onNext(LaunchOption.LAUNCH_OPTION_FROM_MAIN);
             subs.onCompleted();
         }));
-
-        return objectObservable;
     }
 
 

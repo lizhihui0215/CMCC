@@ -15,10 +15,14 @@ import com.pccw.lizhihui.cmcc.data.repository.main.LaunchDataRepository;
 import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
+import com.pccw.lizhihui.cmcc.domain.interactor.GetLaunchOption;
+import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
+import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -60,14 +64,13 @@ public class ApplicationModule {
         return launchRepository;
     }
 
-    @Provides @Singleton NetworkReachbaliltyManager provideNetworkReachbaliltyManager(NetworkReachbaliltyManager networkReachbaliltyManager){
-        return networkReachbaliltyManager;
-    }
-
     @Provides @Singleton Database provideDatabase(DatabaseImpl database){
         return database;
     }
 
+    @Provides @Singleton @Named("GetLaunchOption")
+    UseCase provideLaunchOptionUseCase(LaunchRepository launchRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
 
-
+        return new GetLaunchOption(launchRepository,threadExecutor,postExecutionThread);
+    }
 }

@@ -55,30 +55,23 @@ public class UserCacheImpl implements UserCache {
             String fileContent = UserCacheImpl.this.fileManager.readFileContent(userEntityFile);
             UserEntity user = UserCacheImpl.this.userJSONSerializer.deserialize(fileContent);
 
-            if (user != null){
-                subscriber.onNext(user);
-                subscriber.onCompleted();
-            }else {
-                subscriber.onError(new UserNotFoundException());
-            }
+            subscriber.onNext(user);
+            subscriber.onCompleted();
         });
     }
 
     @Override
     public void put(UserEntity user) throws Exception{
+        File userEntityFile = this.buildFile();
+
         if (user != null){
             if (isCached()){
-                File userEntityFile = this.buildFile();
-                if(this.fileManager.delete(userEntityFile)){
-                    String jsonString = this.userJSONSerializer.serialize(user);
-                    this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
-                            jsonString));
-                    setLastCacheUpdateTimeMillis();
-                }else {
-                    throw new CacheUserException();
-                }
+                this.fileManager.delete(userEntityFile);
             }
-
+            String jsonString = this.userJSONSerializer.serialize(user);
+            this.executeAsynchronously(new CacheWriter(this.fileManager, userEntityFile,
+                    jsonString));
+            setLastCacheUpdateTimeMillis();
         }
     }
     private static class CacheWriter implements Runnable {

@@ -15,7 +15,7 @@ public class GetLaunchOption extends UseCase{
     private final LaunchRepository launchRepository;
 
     @Inject
-    protected GetLaunchOption(LaunchRepository launchRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
+    public GetLaunchOption(LaunchRepository launchRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         super(threadExecutor, postExecutionThread);
         this.launchRepository = launchRepository;
     }
@@ -23,6 +23,6 @@ public class GetLaunchOption extends UseCase{
     @Override
     protected Observable buildUseCaseObservable(Object... args) {
 
-        return null;
+        return this.launchRepository.launchOption();
     }
 }
