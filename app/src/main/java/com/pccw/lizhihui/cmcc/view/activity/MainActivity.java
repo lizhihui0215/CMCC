@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
 
         this.getApplicationComponent().inject(this);
         this.navigator.navigateToLogin(this);
-        this.mainPresenter.test();
+        this.mainPresenter.getLaunchOption();
     }
 
     private void initializeInjector() {

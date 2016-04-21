@@ -4,11 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.pccw.lizhihui.cmcc.domain.LaunchOption;
-import com.pccw.lizhihui.cmcc.domain.User;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
-import com.pccw.lizhihui.cmcc.domain.interactor.GetLaunchOption;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
-import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,7 +23,7 @@ public class MainPresenter implements Presenter {
         this.launchOptionUseCase = getUserUseCase;
     }
 
-    public void test(){
+    public void getLaunchOption(){
         this.launchOptionUseCase.execute(new LaunchOptionSubscriber());
     }
 
@@ -48,7 +45,7 @@ public class MainPresenter implements Presenter {
     }
 
 
-        @Override
+    @Override
     public void resume() {
 
     }
