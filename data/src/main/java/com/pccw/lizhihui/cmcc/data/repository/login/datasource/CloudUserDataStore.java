@@ -1,7 +1,5 @@
 package com.pccw.lizhihui.cmcc.data.repository.login.datasource;
 
-import android.content.Entity;
-
 import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.database.DBAction1;
 import com.pccw.lizhihui.cmcc.data.database.Database;

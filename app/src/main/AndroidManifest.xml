@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pccw.lizhihui.cmcc">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:name=".AndroidApplication"
         android:allowBackup="true"
@@ -16,9 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.BaseActivity" />
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.MainPageActivity"></activity>
+        <activity android:name=".view.activity.MainPageActivity"/>
     </application>
 
 </manifest>

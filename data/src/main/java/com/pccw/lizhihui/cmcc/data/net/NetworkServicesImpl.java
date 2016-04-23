@@ -1,12 +1,12 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
-import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
+import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
+import com.pccw.lizhihui.cmcc.data.net.parameters.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -31,11 +31,13 @@ public class NetworkServicesImpl implements NetworkServices {
 
     protected Retrofit retrofit;
 
+    @Inject
     public NetworkServicesImpl(Context context) {
         if (context == null ) {
             throw new IllegalArgumentException("The constructor parameters cannot be null!!!");
         }
-        this.context = context.getApplicationContext();
+
+        this.context = context;
 
         this.setupRetrofit();
     }
@@ -64,20 +66,28 @@ public class NetworkServicesImpl implements NetworkServices {
 
     @Override
     public Observable<UserEntity> userEntityBy(String username, String password) {
-        UserService service = this.retrofit.create(UserService.class);
+        UserService service = getUserService();
 
         LoginParameters loginParameters = new LoginParameters(username, password);
 
-        return service.getUser(loginParameters).map(new HTTPResultFunc<UserEntity>());
+        return service.getUser(loginParameters).map(new HTTPResultFunc<>());
+    }
+
+    @Override
+    public Observable<String> fetchAccessToken(String accessToken) {
+        return this.getUserService().fetchAccessToken(new AccessTokenParameters(accessToken)).map(new HTTPResultFunc<>());
     }
 
     private class HTTPResultFunc<T> implements Func1<HTTPResult<T>, T>{
 
         @Override
         public T call(HTTPResult<T> tBaseEntity) {
+
             return (T) tBaseEntity.getResults();
         }
     }
 
-
+    private UserService getUserService() {
+        return this.retrofit.create(UserService.class);
+    }
 }

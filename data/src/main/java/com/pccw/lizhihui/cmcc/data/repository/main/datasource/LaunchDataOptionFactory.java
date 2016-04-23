@@ -2,7 +2,8 @@ package com.pccw.lizhihui.cmcc.data.repository.main.datasource;
 
 
 import com.pccw.lizhihui.cmcc.data.cache.UserCache;
-import com.pccw.lizhihui.cmcc.data.net.NetworkReachbaliltyManager;
+import com.pccw.lizhihui.cmcc.data.net.NetworkReachbalityManager;
+import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -14,21 +15,27 @@ import javax.inject.Singleton;
 @Singleton
 public class LaunchDataOptionFactory {
 
-    @Inject NetworkReachbaliltyManager networkReachbaliltyManager;
+//    @Inject NetworkReachbaliltyManagerImpl networkReachbaliltyManagerImpl;
+    private final NetworkReachbalityManager networkReachbalityManager;
+
     private final UserCache userCache;
 
+    private final NetworkServices networkServices;
+
     @Inject
-    public LaunchDataOptionFactory( UserCache userCache){
+    public LaunchDataOptionFactory(UserCache userCache, NetworkReachbalityManager networkReachbalityManager, NetworkServices networkServices){
         this.userCache = userCache;
+
+        this.networkReachbalityManager = networkReachbalityManager;
+
+        this.networkServices = networkServices;
     }
 
     public LaunchOptionStore create() {
 
         LaunchOptionStore launchOptionStore = null;
-        if(false
-                //this.networkReachbaliltyManager.isThereInternetConnection()
-        ){
-            launchOptionStore = new OnlineLaunchOptionStore();
+        if(this.networkReachbalityManager.isThereInternetConnection()){
+            launchOptionStore = new OnlineLaunchOptionStore(this.userCache, this.networkServices);
         }else {
             launchOptionStore = new OfflineLaunchDataStore(this.userCache);
         }

@@ -18,4 +18,6 @@ public interface NetworkServices {
 
     Observable<UserEntity> userEntityBy(String username, String password);
 
+    Observable<String> fetchAccessToken(String accessToken);
+
 }

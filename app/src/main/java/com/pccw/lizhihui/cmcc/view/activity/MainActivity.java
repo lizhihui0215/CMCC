@@ -3,7 +3,7 @@ package com.pccw.lizhihui.cmcc.view.activity;
 import android.os.Bundle;
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
-import com.pccw.lizhihui.cmcc.internal.di.components.DaggerMainComponent;
+import com.pccw.lizhihui.cmcc.internal.di.components.ApplicationComponent;
 import com.pccw.lizhihui.cmcc.internal.di.components.MainComponent;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainMoudle;
 import com.pccw.lizhihui.cmcc.presenter.MainPresenter;
@@ -23,17 +23,14 @@ public class MainActivity extends BaseActivity implements HasComponent<MainCompo
 
         this.initializeInjector();
 
-        this.getApplicationComponent().inject(this);
+        this.mainComponent.inject(this);
         this.navigator.navigateToLogin(this);
         this.mainPresenter.getLaunchOption();
     }
 
     private void initializeInjector() {
-        this.mainComponent = DaggerMainComponent.builder()
-                .applicationComponent(this.getApplicationComponent())
-                .activityModule(this.getActivityMoudle())
-                .mainMoudle(getMainModule())
-                .build();
+        ApplicationComponent applicationComponent = this.getApplicationComponent();
+        this.mainComponent = applicationComponent.mainComponent(new MainMoudle());
     }
 
 

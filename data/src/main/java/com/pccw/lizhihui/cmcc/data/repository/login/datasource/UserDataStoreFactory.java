@@ -16,12 +16,15 @@ import javax.inject.Singleton;
 @Singleton
 public class UserDataStoreFactory {
     private final UserCache userCache;
+
+    private final NetworkServices networkServices;
+
     private Context context;
 
     private final Database database;
 
     @Inject
-    public UserDataStoreFactory(Context context, UserCache userCache, Database database){
+    public UserDataStoreFactory(Context context, UserCache userCache, Database database, NetworkServices networkServices){
         if (context == null) {
             throw new IllegalArgumentException("Constructor parameters cannot be null!!!");
         }
@@ -30,6 +33,8 @@ public class UserDataStoreFactory {
         this.userCache = userCache;
 
         this.database = database;
+
+        this.networkServices = networkServices;
     }
 
     public UserDataStore create(String username, String password){
@@ -45,10 +50,7 @@ public class UserDataStoreFactory {
 
     private UserDataStore createCloudDataStore() {
 
-        NetworkServices networkServices = new NetworkServicesImpl(this.context);
-
-
-        return new CloudUserDataStore(networkServices,this.userCache, this.database);
+        return new CloudUserDataStore(this.networkServices,this.userCache, this.database);
     }
 
 }

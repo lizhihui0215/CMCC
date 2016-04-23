@@ -6,6 +6,7 @@ import android.util.Log;
 import com.pccw.lizhihui.cmcc.domain.LaunchOption;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
+import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,6 +15,7 @@ import javax.inject.Named;
  * Created by lizhihui on 4/16/16.
  *
  */
+@PerActivity
 public class MainPresenter implements Presenter {
 
     private final UseCase launchOptionUseCase;

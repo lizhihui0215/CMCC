@@ -12,12 +12,12 @@ import javax.inject.Singleton;
  *
  */
 @Singleton
-public class NetworkReachbaliltyManager {
+public class NetworkReachbaliltyManagerImpl implements NetworkReachbalityManager{
 
     private final Context context;
 
     @Inject
-    public NetworkReachbaliltyManager(Context context){
+    public NetworkReachbaliltyManagerImpl(Context context){
         this.context = context;
     }
 
@@ -26,6 +26,7 @@ public class NetworkReachbaliltyManager {
      *
      * @return true device with internet connection, otherwise false.
      */
+    @Override
     public boolean isThereInternetConnection() {
         boolean isConnected;
 

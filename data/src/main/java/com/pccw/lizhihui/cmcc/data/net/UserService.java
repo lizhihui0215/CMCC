@@ -2,7 +2,8 @@ package com.pccw.lizhihui.cmcc.data.net;
 
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
-import com.pccw.lizhihui.cmcc.data.entity.LoginParameters;
+import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
+import com.pccw.lizhihui.cmcc.data.net.parameters.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
 
 import retrofit2.http.Body;
@@ -16,4 +17,7 @@ import rx.Observable;
 public interface UserService {
     @POST("eamapp/entry/services/open/srv/user")
     Observable<HTTPResult<UserEntity>> getUser(@Body LoginParameters loginParameters);
+
+    @POST("eamapp/entry/services/open/srv/user")
+    Observable<HTTPResult<String>> fetchAccessToken(@Body AccessTokenParameters accessTokenParameters);
 }

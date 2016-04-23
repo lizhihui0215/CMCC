@@ -21,4 +21,10 @@ import dagger.Provides;
 @Module
 public class MainMoudle {
     public MainMoudle(){}
+
+    @Provides @PerActivity @Named("GetLaunchOption")
+    UseCase provideLaunchOptionUseCase(LaunchRepository launchRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
+
+        return new GetLaunchOption(launchRepository,threadExecutor,postExecutionThread);
+    }
 }

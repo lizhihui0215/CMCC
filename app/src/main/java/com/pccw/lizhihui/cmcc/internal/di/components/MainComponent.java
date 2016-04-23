@@ -8,12 +8,14 @@ import com.pccw.lizhihui.cmcc.view.activity.MainActivity;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by lizhihui on 4/16/16.
  *
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, MainMoudle.class})
+@Subcomponent(modules = {ActivityModule.class, MainMoudle.class})
 public interface MainComponent {
+    void inject(MainActivity mainActivity);
 }

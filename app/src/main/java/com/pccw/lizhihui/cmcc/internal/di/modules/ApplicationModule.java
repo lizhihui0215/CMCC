@@ -8,21 +8,20 @@ import com.pccw.lizhihui.cmcc.data.cache.UserCache;
 import com.pccw.lizhihui.cmcc.data.cache.UserCacheImpl;
 import com.pccw.lizhihui.cmcc.data.database.Database;
 import com.pccw.lizhihui.cmcc.data.database.DatabaseImpl;
-import com.pccw.lizhihui.cmcc.data.net.NetworkReachbaliltyManager;
+import com.pccw.lizhihui.cmcc.data.net.NetworkReachbaliltyManagerImpl;
+import com.pccw.lizhihui.cmcc.data.net.NetworkReachbalityManager;
+import com.pccw.lizhihui.cmcc.data.net.NetworkServices;
+import com.pccw.lizhihui.cmcc.data.net.NetworkServicesImpl;
 import com.pccw.lizhihui.cmcc.data.repository.home.HomeDataRepository;
 import com.pccw.lizhihui.cmcc.data.repository.login.UserDataRepository;
 import com.pccw.lizhihui.cmcc.data.repository.main.LaunchDataRepository;
 import com.pccw.lizhihui.cmcc.domain.executor.JobExecutor;
 import com.pccw.lizhihui.cmcc.domain.executor.PostExecutionThread;
 import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
-import com.pccw.lizhihui.cmcc.domain.interactor.GetLaunchOption;
-import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
-import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -68,9 +67,11 @@ public class ApplicationModule {
         return database;
     }
 
-    @Provides @Singleton @Named("GetLaunchOption")
-    UseCase provideLaunchOptionUseCase(LaunchRepository launchRepository, ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
+    @Provides @Singleton NetworkReachbalityManager provideNetworkReachbaliltyManager(NetworkReachbaliltyManagerImpl networkReachbaliltyManager){
+        return networkReachbaliltyManager;
+    }
 
-        return new GetLaunchOption(launchRepository,threadExecutor,postExecutionThread);
+    @Provides @Singleton NetworkServices provideNetworkServices(NetworkServicesImpl networkServices){
+        return networkServices;
     }
 }
