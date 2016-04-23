@@ -19,4 +19,28 @@ public class HTTPResult<T> {
     public void setResults(T results) {
         this.results = results;
     }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorName() {
+        return errorName;
+    }
+
+    public void setErrorName(String errorName) {
+        this.errorName = errorName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

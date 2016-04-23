@@ -3,6 +3,7 @@ package com.pccw.lizhihui.cmcc.data.net;
 import android.content.Context;
 
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
+import com.pccw.lizhihui.cmcc.data.exception.ServerException;
 import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
 import com.pccw.lizhihui.cmcc.data.net.parameters.LoginParameters;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
@@ -70,20 +71,28 @@ public class NetworkServicesImpl implements NetworkServices {
 
         LoginParameters loginParameters = new LoginParameters(username, password);
 
-        return service.getUser(loginParameters).map(new HTTPResultFunc<>());
+        return service.getUser(loginParameters).flatMap(new HandleError<>());
     }
 
     @Override
     public Observable<String> fetchAccessToken(String accessToken) {
-        return this.getUserService().fetchAccessToken(new AccessTokenParameters(accessToken)).map(new HTTPResultFunc<>());
+         return this.getUserService().fetchAccessToken(new AccessTokenParameters(accessToken))
+                 .flatMap(new HandleError<>());
     }
 
-    private class HTTPResultFunc<T> implements Func1<HTTPResult<T>, T>{
-
+    private class HandleError<T> implements Func1<HTTPResult<T>, Observable<T>>{
         @Override
-        public T call(HTTPResult<T> tBaseEntity) {
-
-            return (T) tBaseEntity.getResults();
+        public rx.Observable<T> call(HTTPResult<T> thttpResult) {
+            Observable<T> objectObservable;
+            if (thttpResult.getStatus().endsWith("Y")){
+                objectObservable = Observable.create(subscriber -> {
+                    subscriber.onNext(thttpResult.getResults());
+                    subscriber.onCompleted();
+                });
+            }else {
+                objectObservable = Observable.error(new ServerException(thttpResult.getErrorName(),thttpResult.getErrorCode()));
+            };
+            return objectObservable;
         }
     }
 
