@@ -1,7 +1,6 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 import android.content.Context;
-
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.exception.ServerException;
 import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
@@ -16,7 +15,6 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.functions.Func1;
-
 
 /**
  * Created by lizhihui on 4/1/16.

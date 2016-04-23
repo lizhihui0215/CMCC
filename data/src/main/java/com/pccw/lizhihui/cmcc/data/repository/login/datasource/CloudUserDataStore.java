@@ -29,9 +29,9 @@ public class CloudUserDataStore implements UserDataStore {
 
     private final DBAction1<UserEntityDao, UserEntity> saveUserToDBAction = AbstractDao::insert;
 
-    private final DBAction1<DepartmentEntityDao,List<DepartmentEntity>> saveDepartmentToDBAction = (departmentEntityDao, departmentEntitys) -> {
-        departmentEntityDao.insertInTx(departmentEntitys);
-    };
+    private final DBAction1<DepartmentEntityDao,List<DepartmentEntity>>
+            saveDepartmentToDBAction = (departmentEntityDao, departmentEntitys) ->
+            departmentEntityDao.insertInTx(departmentEntitys);
 
     private final Action1<UserEntity> saveToCacheAction = user -> {
         if (user != null){

@@ -10,6 +10,7 @@ import com.pccw.lizhihui.cmcc.data.greendao.gen.DaoSession;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import de.greenrobot.dao.AbstractDao;
 import de.greenrobot.dao.query.QueryBuilder;
@@ -18,6 +19,7 @@ import de.greenrobot.dao.query.QueryBuilder;
  * Created by lizhihui on 4/14/16.
  *
  */
+@Singleton
 public class DatabaseImpl implements Database {
     private SQLiteDatabase db;
 
@@ -30,8 +32,6 @@ public class DatabaseImpl implements Database {
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "cmcc.db",null);
 
         this.db =  helper.getWritableDatabase();
-
-        String path = this.db.getPath();
 
         this.daoMaster = new DaoMaster(db);
 
