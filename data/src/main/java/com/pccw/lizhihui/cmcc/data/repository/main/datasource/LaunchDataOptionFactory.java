@@ -15,7 +15,6 @@ import javax.inject.Singleton;
 @Singleton
 public class LaunchDataOptionFactory {
 
-//    @Inject NetworkReachbaliltyManagerImpl networkReachbaliltyManagerImpl;
     private final NetworkReachbalityManager networkReachbalityManager;
 
     private final UserCache userCache;
@@ -33,7 +32,7 @@ public class LaunchDataOptionFactory {
 
     public LaunchOptionStore create() {
 
-        LaunchOptionStore launchOptionStore = null;
+        LaunchOptionStore launchOptionStore;
         if(this.networkReachbalityManager.isThereInternetConnection()){
             launchOptionStore = new OnlineLaunchOptionStore(this.userCache, this.networkServices);
         }else {

@@ -2,6 +2,7 @@ package com.pccw.lizhihui.cmcc.data.exception;
 
 /**
  * Created by lizhihui on 4/23/16.
+ *
  */
 public class ServerException extends Exception {
 

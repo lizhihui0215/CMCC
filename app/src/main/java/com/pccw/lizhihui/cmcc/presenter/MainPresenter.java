@@ -1,13 +1,12 @@
 package com.pccw.lizhihui.cmcc.presenter;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
-
 import com.pccw.lizhihui.cmcc.domain.LaunchOption;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
-
+import com.pccw.lizhihui.cmcc.view.MainView;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,10 +18,15 @@ import javax.inject.Named;
 public class MainPresenter implements Presenter {
 
     private final UseCase launchOptionUseCase;
+    private MainView mainView;
 
     @Inject
     public MainPresenter(@Named("GetLaunchOption") UseCase getUserUseCase) {
         this.launchOptionUseCase = getUserUseCase;
+    }
+
+    public void setView(@NonNull MainView mainView){
+        this.mainView = mainView;
     }
 
     public void getLaunchOption(){
@@ -37,15 +41,21 @@ public class MainPresenter implements Presenter {
 
         @Override
         public void onError(Throwable e) {
-            Log.v("MainPresenter","onError");
+            MainPresenter.this.mainView.navigationToLogin();
         }
 
         @Override
         public void onNext(LaunchOption launchOption) {
-            Log.v("MainPresenter","onNext" + launchOption);
+            switch (launchOption){
+                case LAUNCH_OPTION_FROM_LOGIN:
+                    MainPresenter.this.mainView.navigationToLogin();
+                    break;
+                case LAUNCH_OPTION_FROM_MAIN:
+                    MainPresenter.this.mainView.navigationToMain();
+                    break;
+            }
         }
     }
-
 
     @Override
     public void resume() {

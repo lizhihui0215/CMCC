@@ -1,6 +1,8 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 import android.content.Context;
+
+import com.pccw.lizhihui.cmcc.data.entity.AccessTokenEntity;
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.exception.ServerException;
 import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
@@ -73,22 +75,22 @@ public class NetworkServicesImpl implements NetworkServices {
     }
 
     @Override
-    public Observable<String> fetchAccessToken(String accessToken) {
+    public Observable<AccessTokenEntity> fetchAccessToken(String accessToken) {
          return this.getUserService().fetchAccessToken(new AccessTokenParameters(accessToken))
-                 .flatMap(new HandleError<>());
+                 .flatMap(new HandleError());
     }
 
     private class HandleError<T> implements Func1<HTTPResult<T>, Observable<T>>{
         @Override
-        public rx.Observable<T> call(HTTPResult<T> thttpResult) {
+        public rx.Observable<T> call(HTTPResult<T> httpResult) {
             Observable<T> objectObservable;
-            if (thttpResult.getStatus().endsWith("Y")){
+            if (httpResult.getStatus().endsWith("Y")){
                 objectObservable = Observable.create(subscriber -> {
-                    subscriber.onNext(thttpResult.getResults());
+                    subscriber.onNext(httpResult.getResults());
                     subscriber.onCompleted();
                 });
             }else {
-                objectObservable = Observable.error(new ServerException(thttpResult.getErrorName(),thttpResult.getErrorCode()));
+                objectObservable = Observable.error(new ServerException(httpResult.getErrorName(),httpResult.getErrorCode()));
             };
             return objectObservable;
         }

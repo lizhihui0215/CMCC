@@ -1,6 +1,7 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 
+import com.pccw.lizhihui.cmcc.data.entity.AccessTokenEntity;
 import com.pccw.lizhihui.cmcc.data.entity.HTTPResult;
 import com.pccw.lizhihui.cmcc.data.net.parameters.AccessTokenParameters;
 import com.pccw.lizhihui.cmcc.data.net.parameters.LoginParameters;
@@ -19,5 +20,5 @@ public interface UserService {
     Observable<HTTPResult<UserEntity>> getUser(@Body LoginParameters loginParameters);
 
     @POST("eamapp/entry/services/open/srv/user")
-    Observable<HTTPResult<String>> fetchAccessToken(@Body AccessTokenParameters accessTokenParameters);
+    Observable<HTTPResult<AccessTokenEntity>> fetchAccessToken(@Body AccessTokenParameters accessTokenParameters);
 }

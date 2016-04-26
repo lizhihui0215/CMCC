@@ -1,8 +1,8 @@
 package com.pccw.lizhihui.cmcc.data.net;
 
 
+import com.pccw.lizhihui.cmcc.data.entity.AccessTokenEntity;
 import com.pccw.lizhihui.cmcc.data.greendao.gen.UserEntity;
-
 import rx.Observable;
 
 /**
@@ -18,6 +18,6 @@ public interface NetworkServices {
 
     Observable<UserEntity> userEntityBy(String username, String password);
 
-    Observable<String> fetchAccessToken(String accessToken);
+    Observable<AccessTokenEntity> fetchAccessToken(String accessToken);
 
 }

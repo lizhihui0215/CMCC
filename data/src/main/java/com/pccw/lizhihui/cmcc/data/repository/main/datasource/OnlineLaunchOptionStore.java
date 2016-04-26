@@ -39,7 +39,7 @@ public class OnlineLaunchOptionStore implements LaunchOptionStore {
                                 .fetchAccessToken(userEntity.getAccessToken())
                                 .switchMap(accessToken -> {
                                     if (null != accessToken){
-                                        userEntity.setAccessToken(accessToken);
+                                        userEntity.setAccessToken(accessToken.getAccessToken());
                                         try {
                                             OnlineLaunchOptionStore.this.userCache.put(userEntity);
                                         } catch (Exception e) {
