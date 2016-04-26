@@ -67,6 +67,7 @@ public class LoginPresenter implements Presenter {
         @Override
         public void onNext(User user) {
             Log.v("next " + user , "login");
+            LoginPresenter.this.loginView.navigationToMain();
         }
     }
 }

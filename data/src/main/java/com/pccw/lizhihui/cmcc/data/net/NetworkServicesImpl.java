@@ -77,7 +77,7 @@ public class NetworkServicesImpl implements NetworkServices {
     @Override
     public Observable<AccessTokenEntity> fetchAccessToken(String accessToken) {
          return this.getUserService().fetchAccessToken(new AccessTokenParameters(accessToken))
-                 .flatMap(new HandleError());
+                 .flatMap(new HandleError<>());
     }
 
     private class HandleError<T> implements Func1<HTTPResult<T>, Observable<T>>{

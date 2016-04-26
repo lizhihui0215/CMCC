@@ -26,8 +26,6 @@ public class LaunchDataRepository implements LaunchRepository {
     public Observable<LaunchOption> launchOption() {
         final LaunchOptionStore launchOptionStore = this.launchDataOptionFactory.create();
 
-
-
         return launchOptionStore.launchOption();
     }
 }

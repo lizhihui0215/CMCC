@@ -14,6 +14,7 @@ import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.components.LoginComponent;
 import com.pccw.lizhihui.cmcc.presenter.LoginPresenter;
 import com.pccw.lizhihui.cmcc.view.LoginView;
+import com.pccw.lizhihui.cmcc.view.activity.LoginActivity;
 
 import javax.inject.Inject;
 
@@ -79,5 +80,10 @@ public class LoginFragment extends BaseFragment implements LoginView {
     @Override
     public Context context() {
         return this.getActivity().getApplication();
+    }
+
+    @Override
+    public void navigationToMain() {
+        ((LoginActivity)this.getActivity()).navigationToMain();
     }
 }
