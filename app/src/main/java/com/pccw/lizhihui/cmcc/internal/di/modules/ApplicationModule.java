@@ -21,9 +21,7 @@ import com.pccw.lizhihui.cmcc.domain.executor.ThreadExecutor;
 import com.pccw.lizhihui.cmcc.domain.repository.HomeRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LaunchRepository;
 import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
-
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
