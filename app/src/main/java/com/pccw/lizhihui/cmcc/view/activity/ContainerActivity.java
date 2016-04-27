@@ -19,7 +19,7 @@ import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainPageActivity extends BaseActivity implements HasComponent<MainPageComponent>,
+public class ContainerActivity extends BaseActivity implements HasComponent<MainPageComponent>,
 MainPageFragment.MainPageContainerListener{
 
     private MainPageComponent mainPageComponent;
@@ -27,7 +27,7 @@ MainPageFragment.MainPageContainerListener{
     @Bind(R.id.toolbar) Toolbar toolbar;
 
     public static Intent getCallingIntent(Context context) {
-        Intent callingIntent = new Intent(context, MainPageActivity.class);
+        Intent callingIntent = new Intent(context, ContainerActivity.class);
         return callingIntent;
     }
 
@@ -59,7 +59,7 @@ MainPageFragment.MainPageContainerListener{
 
     private void initializeActivity(Bundle savedInstanceState) {
         if (savedInstanceState == null){
-            addFragment(R.id.container_fragment,new MainPageFragment());
+            addFragment(R.id.container,new MainPageFragment());
         }
     }
 

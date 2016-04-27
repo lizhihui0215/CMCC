@@ -3,7 +3,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.pccw.lizhihui.cmcc.view.activity.LoginActivity;
-import com.pccw.lizhihui.cmcc.view.activity.MainPageActivity;
+import com.pccw.lizhihui.cmcc.view.activity.ContainerActivity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -28,7 +28,7 @@ public class Navigator {
 
     public void navigateToMainPage(Context context) {
         if (null != context){
-            Intent intentToLaunch = MainPageActivity.getCallingIntent(context);
+            Intent intentToLaunch = ContainerActivity.getCallingIntent(context);
             context.startActivity(intentToLaunch);
         }
     }

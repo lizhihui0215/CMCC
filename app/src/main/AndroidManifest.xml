@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.MainPageActivity"/>
+        <activity android:name=".view.activity.ContainerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
