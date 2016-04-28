@@ -72,4 +72,6 @@ public class FragmentPagerAdapter extends
     public int getCount() {
         return 0;
     }
+
+
 }
