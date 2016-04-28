@@ -9,15 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.components.LoginComponent;
 import com.pccw.lizhihui.cmcc.presenter.LoginPresenter;
 import com.pccw.lizhihui.cmcc.view.LoginView;
 import com.pccw.lizhihui.cmcc.view.activity.LoginActivity;
-
 import javax.inject.Inject;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

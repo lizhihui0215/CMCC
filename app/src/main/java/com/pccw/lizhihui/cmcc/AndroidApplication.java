@@ -22,15 +22,15 @@ public class AndroidApplication extends Application{
     }
 
     private void initializeLeakDetection() {
-        this.applicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this))
-                .build();
-    }
-
-    private void initializeInjector() {
         if (BuildConfig.DEBUG){
             LeakCanary.install(this);
         }
+    }
+
+    private void initializeInjector() {
+        this.applicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
     }
 
     public ApplicationComponent getApplicationComponent() {

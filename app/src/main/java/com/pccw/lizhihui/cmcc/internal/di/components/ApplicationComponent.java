@@ -9,9 +9,7 @@ import com.pccw.lizhihui.cmcc.domain.repository.LoginRepository;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ApplicationModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainMoudle;
 import com.pccw.lizhihui.cmcc.view.activity.BaseActivity;
-
 import javax.inject.Singleton;
-
 import dagger.Component;
 
 /**

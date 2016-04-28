@@ -1,9 +1,9 @@
 package com.pccw.lizhihui.cmcc.internal.di.components;
 
 import android.support.v7.app.AppCompatActivity;
+
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.internal.di.modules.ActivityModule;
-import com.pccw.lizhihui.cmcc.view.activity.MainActivity;
 
 import dagger.Component;
 
