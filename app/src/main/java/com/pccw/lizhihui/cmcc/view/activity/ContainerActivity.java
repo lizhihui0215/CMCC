@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.domain.Province;
 import com.pccw.lizhihui.cmcc.internal.di.HasComponent;
@@ -15,7 +14,6 @@ import com.pccw.lizhihui.cmcc.internal.di.components.MainPageComponent;
 import com.pccw.lizhihui.cmcc.internal.di.modules.HomeModule;
 import com.pccw.lizhihui.cmcc.internal.di.modules.MainPageModule;
 import com.pccw.lizhihui.cmcc.view.fragment.MainPageFragment;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -27,8 +25,7 @@ MainPageFragment.MainPageContainerListener{
     @Bind(R.id.toolbar) Toolbar toolbar;
 
     public static Intent getCallingIntent(Context context) {
-        Intent callingIntent = new Intent(context, ContainerActivity.class);
-        return callingIntent;
+        return new Intent(context, ContainerActivity.class);
     }
 
     @Override
@@ -47,9 +44,9 @@ MainPageFragment.MainPageContainerListener{
         //ab.setHomeAsUpIndicator(R.drawable.ic_menu); // set a custom icon for the default home button
         assert ab != null;
         ab.setDisplayShowHomeEnabled(true); // show or hide the default home button
-        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayHomeAsUpEnabled(false);
         ab.setDisplayShowCustomEnabled(true); // enable overriding the default toolbar layout
-        ab.setDisplayShowTitleEnabled(false); // disable the default title element here (for centered title)
+        ab.setDisplayShowTitleEnabled(true); // disable the default title element here (for centered title)
 
 
         this.initializeActivity(savedInstanceState);
