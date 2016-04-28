@@ -145,6 +145,6 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
 
     @Override
     protected FragmentProvider getProvider() {
-        return adapter;
+        return this.adapter;
     }
 }

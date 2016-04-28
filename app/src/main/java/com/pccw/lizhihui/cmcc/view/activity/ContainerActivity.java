@@ -48,7 +48,6 @@ MainPageFragment.MainPageContainerListener{
         ab.setDisplayShowCustomEnabled(true); // enable overriding the default toolbar layout
         ab.setDisplayShowTitleEnabled(true); // disable the default title element here (for centered title)
 
-
         this.initializeActivity(savedInstanceState);
 
         this.initializeInjector();

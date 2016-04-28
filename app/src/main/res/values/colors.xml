@@ -5,6 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="primary">#3D3D3D</color>
 
+    <color name="primary_dark">#313131</color>
+    <color name="accent">#3797C7</color>
+
+    <color name="background">#F9F9F9</color>
     <!-- 标题栏颜色 -->
     <color name="titlebar_background">#5299CF</color>
     <!-- 顶部radiobutton被选中时颜色 -->

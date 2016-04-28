@@ -65,6 +65,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
             this.tags.add(((Fragment) fragment).getTag());
         return fragment;
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
