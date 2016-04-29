@@ -84,8 +84,8 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
      * @return this activity
      */
     protected TabPagerFragment<V> setGone(boolean gone){
-        ViewUtils.setGone(tabLayout,gone);
-        ViewUtils.setGone(pager, gone);
+        ViewUtils.setGone(this.tabLayout,gone);
+        ViewUtils.setGone(this.pager, gone);
         return this;
     }
 

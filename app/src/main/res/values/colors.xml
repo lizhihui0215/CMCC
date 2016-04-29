@@ -427,6 +427,9 @@
     <color name="orignal_information">#f47900</color>
     <!-- 资产信息差异原信息背景颜色 -->
     <color name="orignal_information_background">#f4f3ef</color>
+    <color name="pager_title_background_top_start" />
+    <color name="pager_title_background_end" />
+    <color name="text_link" />
     <!-- Cmcc 移动资产管理系统  颜色 -->
 
 </resources>

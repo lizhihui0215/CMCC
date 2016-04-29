@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.pccw.lizhihui.cmcc.R;
 import com.pccw.lizhihui.cmcc.internal.di.components.LoginComponent;
 import com.pccw.lizhihui.cmcc.presenter.LoginPresenter;
 import com.pccw.lizhihui.cmcc.view.LoginView;
-import com.pccw.lizhihui.cmcc.view.activity.LoginActivity;
+
 import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,16 +30,28 @@ public class LoginFragment extends BaseFragment implements LoginView {
     @Bind(R.id.tv_password) TextView tv_password;
 
     @Inject LoginPresenter loginPresenter;
+    private LoginLinstener loginListener;
 
+    public interface LoginLinstener{
+        void onLoginSuccessful();
+    }
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof LoginLinstener)
+            this.loginListener = (LoginLinstener) context;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getComponent(LoginComponent.class).inject(this);
+        this.loginPresenter.setView(this);
     }
 
     @Override
@@ -72,7 +86,9 @@ public class LoginFragment extends BaseFragment implements LoginView {
     public void hidenRetry() {}
 
     @Override
-    public void showError(String message) {}
+    public void showError(String message) {
+        this.showToastMessage(message);
+    }
 
     @Override
     public Context context() {
@@ -81,6 +97,6 @@ public class LoginFragment extends BaseFragment implements LoginView {
 
     @Override
     public void navigationToMain() {
-        ((LoginActivity)this.getActivity()).navigationToMain();
+        this.loginListener.onLoginSuccessful();
     }
 }

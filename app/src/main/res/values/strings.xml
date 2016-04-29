@@ -10,4 +10,7 @@
     <string name="tab_home">业务管理</string>
     <string name="tab_asset">个人资产管理</string>
     <string name="tab_mine">个人中心</string>
+    <string name="exception_message_generic">xxx</string>
+    <string name="name">bbbbbbbb</string>
+    <string name="department">aaaaaaa</string>
 </resources>

@@ -13,7 +13,7 @@ import com.pccw.lizhihui.cmcc.view.fragment.LoginFragment;
 
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements HasComponent<LoginComponent>{
+public class LoginActivity extends BaseActivity implements HasComponent<LoginComponent>, LoginFragment.LoginLinstener{
 
     private LoginComponent loginComponent;
 
@@ -61,5 +61,10 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
     @Override
     public LoginComponent getComponent() {
         return this.loginComponent;
+    }
+
+    @Override
+    public void onLoginSuccessful() {
+        this.navigationToMain();
     }
 }

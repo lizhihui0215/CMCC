@@ -30,6 +30,4 @@ public class BaseFragment extends Fragment {
         return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
     }
 
-
-
 }

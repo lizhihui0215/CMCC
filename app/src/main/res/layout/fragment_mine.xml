@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
+        android:id="@+id/mine_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="test2" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/icon_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_person_icon"
+            android:layout_marginLeft="20dp"
+            android:contentDescription="xx" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/icon_mine"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"/>
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/department"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <include layout="@layout/fragment_item_list"
+        android:id="@+id/menu_items"
+        android:layout_above="@+id/logout_button"
+        android:layout_below="@+id/mine_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_marginBottom="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

@@ -4,8 +4,11 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.pccw.lizhihui.cmcc.domain.User;
+import com.pccw.lizhihui.cmcc.domain.exception.DefaultErrorBundle;
+import com.pccw.lizhihui.cmcc.domain.exception.ErrorBundle;
 import com.pccw.lizhihui.cmcc.domain.interactor.DefaultSubscriber;
 import com.pccw.lizhihui.cmcc.domain.interactor.UseCase;
+import com.pccw.lizhihui.cmcc.exception.ErrorMessageFactory;
 import com.pccw.lizhihui.cmcc.internal.di.PerActivity;
 import com.pccw.lizhihui.cmcc.view.LoginView;
 
@@ -62,6 +65,7 @@ public class LoginPresenter implements Presenter {
         @Override
         public void onError(Throwable e) {
             Log.v("ex " + e, "login");
+            LoginPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
         }
 
         @Override
@@ -69,5 +73,11 @@ public class LoginPresenter implements Presenter {
             Log.v("next " + user , "login");
             LoginPresenter.this.loginView.navigationToMain();
         }
+    }
+
+    private void showErrorMessage(ErrorBundle errorBundle) {
+        String errorMessage = ErrorMessageFactory.create(this.loginView.context(),
+                errorBundle.getException());
+        this.loginView.showError(errorMessage);
     }
 }
