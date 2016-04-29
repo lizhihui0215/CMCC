@@ -84,11 +84,11 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
     public int getIcon(int position) {
         switch (position){
             case 0:
-                return R.drawable.main_home_select;
+                return R.drawable.tab_home_selector;
             case 1:
-                return R.drawable.main_category_select;
+                return R.drawable.tab_asset_selector;
             case 2:
-                return R.drawable.main_mine_select;
+                return R.drawable.tab_mine_selector;
             default:
                 return 0;
         }
