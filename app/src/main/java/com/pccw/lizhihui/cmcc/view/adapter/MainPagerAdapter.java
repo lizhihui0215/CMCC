@@ -41,7 +41,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
                             MineFragment mineFragment) {
         super(fm,activity);
         this.fragments = Arrays.asList(homeFragment, assetFragment, mineFragment);
-        resources = fm.getFragments().get(0).getResources();
+        this.resources = activity.getResources();
     }
 
     @Override
