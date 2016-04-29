@@ -1,6 +1,7 @@
 package com.pccw.lizhihui.cmcc.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
@@ -54,6 +55,7 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
      */
     protected abstract V createAdapter();
 
+
     /**
      * Get title for position
      *
@@ -70,9 +72,10 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
      * @param position
      * @return icon
      */
-    protected String getIcon(final int position){
-        return null;
+    protected @DrawableRes int getIcon(int position){
+        return this.adapter.getIcon(position);
     }
+
 
     /**
      * Set tab and pager as gone or visible
@@ -114,6 +117,15 @@ public abstract class TabPagerFragment<V extends PagerAdapter & FragmentProvider
         this.getActivity().supportInvalidateOptionsMenu();
         this.pager.setAdapter(adapter);
         this.tabLayout.setupWithViewPager(this.pager);
+        this.setTabIcons();
+    }
+
+    private void setTabIcons() {
+        int tabCount = this.tabLayout.getTabCount();
+        for (int i = 0; i < tabCount; i++) {
+            int icon = this.getIcon(i);
+            this.tabLayout.getTabAt(i).setIcon(icon);
+        }
     }
 
     /**

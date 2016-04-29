@@ -6,6 +6,7 @@ package com.pccw.lizhihui.cmcc.view.fragment;
  * Provides a fragment
  */
 
+import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
 
 public interface  FragmentProvider {
@@ -16,4 +17,5 @@ public interface  FragmentProvider {
      */
     Fragment getSelected();
 
+    @DrawableRes int getIcon(int position);
 }

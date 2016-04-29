@@ -80,4 +80,17 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
+    @Override
+    public int getIcon(int position) {
+        switch (position){
+            case 0:
+                return R.drawable.main_home_select;
+            case 1:
+                return R.drawable.main_category_select;
+            case 2:
+                return R.drawable.main_mine_select;
+            default:
+                return 0;
+        }
+    }
 }

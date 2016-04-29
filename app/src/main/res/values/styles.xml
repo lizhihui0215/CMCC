@@ -3,12 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
 
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
-
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
         <item name="windowActionBar">false</item>
@@ -30,11 +29,6 @@
         <item name="colorControlHighlight">@color/ripple_material_dark</item>
     </style>
 
-    <style name="main_page_radio_button_style">
-        <item name="android:button">@null</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/white</item>
-    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
