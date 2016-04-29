@@ -151,7 +151,7 @@ public abstract class ItemListFragment<E> extends BaseFragment implements
     }
 
     public void refresh(){
-        refresh(null)
+        refresh(null);
     }
 
     private void refresh(final Bundle args){
